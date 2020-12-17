@@ -1,0 +1,37 @@
+# (1-5) Software installation
+
+**Step 1** - Download the required input and output files from the Supplementary Materials of the protocol.
+
+  * Create two directories, project data folder and results data folder.
+
+  * Place all downloaded input and example output files into the project data folder.
+
+  * As you progress through the protocol, place any newly generated files into the results data folder.
+
+**Step 2** -  Install Java v.11 or higher. Follow the download and installation instructions for Java JRE at http://www.oracle.com/technetwork/java/javase/downloads/index.html.
+
+```{block, type="rmd-troubleshooting"}
+Problem: User does not know whether Java is installed on the computer or which version is installed
+
+Solution:
+The Java website (https://www.java.com) has a help page called ‘How to find Java version in Windows or Mac – Manual method’ (https://www.java.com/en/download/help/version_manual.xml) to find which version of Java is already installed
+```
+
+**Step 3** - Download the latest version of GSEA. We recommend the javaGSEA desktop application available at http://www.broadinstitute.org/gsea/downloads.jsp. Free registration is required.
+
+**Step 4** -  Download the latest version of Cytoscape from http://www.cytoscape.org. Cytoscape v.3.8.2 or higher is required.
+
+**Step 5** -  Install the required Cytoscape applications.
+
+  * Launch Cytoscape.
+
+  * Go to Apps → App Manager (i.e., open the Apps menu and select the item App Manager).
+
+  * In the Install Apps tab search bar, search for EnrichmentMap.
+
+  * Click on EnrichmentMap Pipeline Collection in the center panel. Verify that it is v.1.0.0 or higher.
+
+  * Click on the Install button.
+
+  * Go to the Currently Installed tab and verify that the applications (EnrichmentMap, clusterMaker2, WordCloud and AutoAnnotate) have been installed.
+

@@ -1,0 +1,36 @@
+# Materials
+
+## Equipment
+### Hardware
+  * A personal computer with Internet access and ≥8 GB of RAM. 1 GB of RAM is sufficient to run GSEA analysis; however, Cytoscape (required to run EnrichmentMap software) requires ≥8 GB of RAM.
+
+### Software
+  * A contemporary web browser (e.g., Chrome) for pathway enrichment analysis with g:Profiler (Step 6A).
+
+  * g:Profiler (https://biit.cs.ut.ee/gprofiler/)
+
+  * Java Standard Edition (http://www.oracle.com/technetwork/java/javase/downloads/index.html) is required to run GSEA and Cytoscape.
+  
+  * GSEA desktop application (http://software.broadinstitute.org/gsea/downloads.jsp) is used for pathway enrichment analysis (Step 6B). - **currently GSEA 4.1.0**
+  
+  * The Cytoscape desktop application (http://www.cytoscape.org/download.php), as well as the following Cytoscape applications (specified the updated versions used for this updated protocol), is required for enrichment map visualization: EnrichmentMap, v.3.3.1 or higher; clusterMaker2, v.1.3.1 or higher; WordCloud, v.3.1.3 or higher; AutoAnnotate, v,1.3.3 or higher. These can be conveniently downloaded and installed together by installing the ‘EnrichmentMap Pipeline Collection’ (http://apps.cytoscape.org/apps/enrichmentmappipelinecollection) from the Cytoscape App Store.
+  
+### Input data
+
+```{block, type="rmd-datadownload"}
+
+We provide downloadable example files that are referred to throughout the protocol (Supplementary Tables 1–13). We recommend saving all these files in a personal project data folder before starting. We also recommend creating an additional result data folder to save the files generated while performing the protocol.
+
+Right click on link below and select "Save Link As...".
+
+Place it in the corresponding work directory.
+```
+
+#### A gene list or ranked gene list of interest
+
+  * [Example data for Step 6A](./data/Supplementary_Table1_Cancer_drivers.txt). g:Profiler requires a list of genes, one per line, in a text file or spreadsheet, ready to copy and paste into a web page: for this, we use genes with frequent somatic SNVs identified in TCGA exome sequencing data of 3,200 tumors of 12 types6. The MuSiC cancer driver mutation detection software was used to find 127 cancer driver genes that displayed higher than expected mutation frequencies in cancer samples (Supplementary Table 1, which is derived from column B of Supplementary Table 4 in ref. 6). Genes are ranked in decreasing order of significance (FDR Q value) and mutation frequency (not shown).
+
+  * [Example data for Step 6B. GSEA requires an RNK file with gene scores](./data/Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk). An RNK file is a two-column text file with gene IDs in the first column and gene scores in the second column. All (or most) genes in the genome need to have a score, and the gene IDs need to match those used in the GMT file. We provide a ranked list of differentially expressed genes in ovarian cancer from TCGA (Supplementary Table 2). This cohort was previously stratified into four molecular subtypes on the basis of gene expression data, defined as differentiated, immunoreactive, mesenchymal and proliferative7,8. We compared the immunoreactive and mesenchymal subtypes to demonstrate the protocol. Step 5 of Supplementary Protocol 1 shows how this file was created.
+
+#### Pathways gene set database
+* In Step 6A, g:Profiler maintains an up-to-date set of pathway gene sets from multiple sources and no further input from the user is required, but a database of pathway gene sets is required for Step 6B (GSEA). Supplementary Table 3 contains a database of pathway gene sets used for pathway enrichment analysis in the standard GMT format, downloaded from http://baderlab.org/GeneSets. This file contains pathways downloaded on 1 July 2017 from eight data sources: GO[@GO], Reactome[@reactome], Panther[@panther], NetPath[@netpath], NCI[@nci], MSigDB curated gene sets (C2 collection, excluding Reactome and KEGG)[@msigdb], MSigDB Hallmark (H collection)[@hallmark] and HumanCyc[@metacyc]. The gene sets available from http://baderlab.org/GeneSets are updated monthly. A GMT file is a text file in which each line represents a gene set for a single pathway. Each line includes a pathway ID, a name and the list of associated genes in a tab-separated format. - [Geneset files used for original protocol](./data/Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt)

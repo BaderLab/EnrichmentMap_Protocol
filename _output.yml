@@ -1,0 +1,17 @@
+bookdown::gitbook:
+  css: style.css
+  number_sections: false
+  config:
+    toc:
+      collapse: subsection
+      scroll_highlight: yes
+      before: |
+        <li><a href="./"></a></li>
+      after: |
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+    toolbar:
+      position: fixed
+    download: ["epub"]
+    new_session: no
+bookdown::epub_book: default
+

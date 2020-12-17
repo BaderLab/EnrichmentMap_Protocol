@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>(6A) Gene list using g:Profiler | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap</title>
+  <meta name="description" content="updated version of nature protocol" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="(6A) Gene list using g:Profiler | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="updated version of nature protocol" />
+  <meta name="github-repo" content="baderlab/EnrichmentMap_Protocol" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="(6A) Gene list using g:Profiler | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap" />
+  
+  <meta name="twitter:description" content="updated version of nature protocol" />
+  
+
+<meta name="author" content="Ruth Isserlin" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="pathway-enrichment-analysis.html"/>
+<link rel="next" href="gsea-enrich.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i>Attributions:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html"><i class="fa fa-check"></i>Materials</a><ul>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#equipment"><i class="fa fa-check"></i>Equipment</a><ul>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#hardware"><i class="fa fa-check"></i>Hardware</a></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#software"><i class="fa fa-check"></i>Software</a></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#input-data"><i class="fa fa-check"></i>Input data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="software-installation.html"><a href="software-installation.html"><i class="fa fa-check"></i>(1-5) Software installation</a></li>
+<li class="chapter" data-level="" data-path="pathway-enrichment-analysis.html"><a href="pathway-enrichment-analysis.html"><i class="fa fa-check"></i>Pathway enrichment analysis</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html"><i class="fa fa-check"></i>(6A) Gene list using g:Profiler</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#specify-parameters"><i class="fa fa-check"></i>Specify parameters</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#downlaod-gmt"><i class="fa fa-check"></i>Downlaod GMT</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#run-query"><i class="fa fa-check"></i>Run Query</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#filter-enrichment-results"><i class="fa fa-check"></i>Filter enrichment results</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#downlaod-enrichment-file"><i class="fa fa-check"></i>Downlaod Enrichment File</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html"><i class="fa fa-check"></i>(6B) Ranked gene list using GSEA</a><ul>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#gsea_ts1"><i class="fa fa-check"></i>Loading the required data files into GSEA</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#specifying-parameters"><i class="fa fa-check"></i>Specifying parameters</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#running-gsea"><i class="fa fa-check"></i>Running GSEA</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#examining-gsea-results"><i class="fa fa-check"></i>Examining GSEA results</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="gprofiler-enrich" class="section level1">
+<h1>(6A) Gene list using g:Profiler</h1>
+<div id="specify-parameters" class="section level2">
+<h2>Specify parameters</h2>
+<ol style="list-style-type: lower-roman">
+<li>Open the g:Profiler website at <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a>.</li>
+<li>Paste the gene list (<a href="./data/Supplementary_Table1_Cancer_drivers.txt">Supplementary_Table1_Cancer_drivers.txt</a>) into the Query field in top-left corner of the screen.</li>
+<li>Check the box next to Ordered query. This option treats the input as an ordered gene list and prioritizes genes with higher mutation ESs at the beginning of the list.</li>
+<li>Click on <em>Advanced Options</em> to set additional parameters.</li>
+</ol>
+<div class="figure">
+<img src="images/gprofiler/gp1.png" />
+
+</div>
+<div class="rmd-note">
+<p>
+The gene list can be space-separated or one per line. The organism for the analysis, Homo sapiens, is selected by default. The input list can contain a mix of gene and protein IDs, symbols and accession numbers. Duplicated and unrecognized IDs will be removed automatically, and ambiguous symbols can be refined in an interactive dialogue after submitting the query.
+</p>
+</div>
+<div class="rmd-tip">
+<p>
+open the file in a simple text editor such as Notepad or Textedit to copy the list of genes.
+</p>
+</div>
+<p align="center">
+<img src="images/gprofiler/gp2.png" alt="workflow" width="50%" align="right" />
+</p>
+<ol start=5 type="i">
+<li>
+Set <em>Significance threshold</em> to &quot;Benjamini-Hochberg FDR&quot;.
+</ol>
+<p><br><br><br><br><br></p>
+<div class="rmd-tip">
+<p>
+if g:Profiler does not return any results:
+</p>
+<ul>
+<li>
+increase the <em>User threshold</em> (0.1, then 1) to check that g:Profiler is running successfully but there are simply no significant results for your query.
+</li>
+<li>
+Alternately, click on <em>All results</em> to return all enrichments irrespective of significance.
+</li>
+</ul>
+</div>
+<p align="center">
+<img src="images/gprofiler/gp3.png" alt="workflow" width="50%" align="right" />
+</p>
+<ol start="6" type="i">
+<li>
+Click on the <em>Data sources</em> tab (black rectangle) to expand it.
+</li>
+<li>
+UnSelect the following gene-set databases by clicking the &quot;clear all&quot; button.
+</li>
+<li>
+In the <em>Gene Ontology</em> category, check <em>GO Biological Process</em> and <em>No electronic GO annotations</em>.
+</li>
+<li>
+In the <em>biological pathways</em> category, check <em>Reactome</em>.
+</li>
+</ol>
+<p><br><br></p>
+<div class="rmd-note">
+<p>
+<em>No electronic GO annotations</em> option will discard less reliable GO annotations (IEAs) that are not manually reviewed.
+</p>
+</div>
+<div class="rmd-tip">
+<p>
+if g:Profiler does not return any results uncheck the <em>No electronic GO annotation</em> option to expand annotations used in the test.
+</p>
+</div>
+<hr />
+</div>
+<div id="downlaod-gmt" class="section level2">
+<h2>Downlaod GMT</h2>
+<p align="center">
+<img src="images/gprofiler/gp4.png" alt="workflow" width="60%" align="left"/>
+</p>
+<ul>
+<li><p>Optional but recommended: Download the required GMT pathway database file.</p></li>
+<li><p>Click on the 'combined name.gmt' link located at bottom of the dataset tab. It will download a file named <em>combined name.gmt</em> containing a pathway database GMT file with all the available sources.</p></li>
+<li><p>(Optional) concatenate the <a href="GO:BP" class="uri">GO:BP</a> and Reactome gmt files:</p></li>
+</ul>
+<p>If you want to create a smaller gmt file that doesn't contain all of the gprofiler datasources you can instead download name.gmt.zip that contains each datasource as its own GMT file. You will need to concatenate the sources you require into one GMT file to use for later.</p>
+<div id="option-1-merge-manually-if-you-are-not-familiar-with-unix-commands" class="section level4">
+<h4>Option 1: Merge manually, if you are not familiar with unix commands</h4>
+<ul>
+<li>open a text editor such a Notepad or equivalent</li>
+<li>open hsapiens.<a href="GO:BP.name.gmt" class="uri">GO:BP.name.gmt</a> using the text editor</li>
+<li>open gmt hsapiens.REAC.name.gmt using the text editor</li>
+<li>copy-paste all the rows from REAC file together with all the rows in <a href="GO:BP" class="uri">GO:BP</a> file and save it as hsapiens.pathways.name.gmt .</li>
+</ul>
+</div>
+<div id="option-2-using-the-cat-command-if-you-are-familiar-with-unix-commands" class="section level4">
+<h4>Option 2: using the cat command if you are familiar with unix commands</h4>
+<ul>
+<li>open your terminal window</li>
+<li>cd to the unzipped gprofiler_hsapiens.name folder</li>
+<li>type the following command: <code>cat hsapiens.GO:BP.name.gmt hsapiens.REAC.name.gmt &gt; hsapiens.pathways.name.gmt</code></li>
+</ul>
+<div class="rmd-note">
+<p>
+you will be using this optional hsapiens.pathways.name.gmt file in Cytoscape EnrichmentMap.
+</p>
+</div>
+<hr />
+</div>
+</div>
+<div id="run-query" class="section level2">
+<h2>Run Query</h2>
+<ol start="11" type="i">
+<li>
+Click <em>Run Query</em> to run the analysis. The <em>Run Query</em> button will change to <em>Run Query ...</em> while it is running and <em>Run Query ✓</em> when the query is complete. The ✓ will only remain there momentarily and then return to <em>Run Query</em> button.
+</li>
+</ol>
+<div class="figure">
+<img src="images/gprofiler/gp5.png" />
+
+</div>
+<div class="rmd-tip">
+<p>
+If you miss the button changing from &quot;...&quot; to ✓ it might appear that nothing has happened. Scroll down to see results.
+</p>
+</div>
+<p>A graphical map of the resulting pathways will be shown, with the -log10(pvalue) along the y axis and the associated pathways of the input list shown along the x axis divided by datasource. By default, results with Q values &lt;0.05 are reported but all pathways are shown in the graphical map with a dotted line indicating which pathways are significant and pass correction.</p>
+<img src="images/gprofiler/gp6.png" />
+<div class="rmd-tip">
+<p>
+Mousing over any of the dots will display the source identifier, pathway name and associated p-value.
+</p>
+</div>
+</div>
+<div id="filter-enrichment-results" class="section level2">
+<h2>Filter enrichment results</h2>
+<ol start="12" type="i">
+<li>
+Click <em>Detailed Results</em> tab to see detailed results.
+</li>
+</ol>
+<p>A graphical heat map image will be shown, with detected pathways shown along the y axis (left) and associated genes of the input list shown along the x axis (top). Resulting pathways are listed by p-value. g:Profiler returns only statistically significant pathways with P values adjusted for multiple testing correction (called Q values). By default, results with Q values &lt;0.05 are reported. g:Profiler reports unrecognized and ambiguous gene IDs that can be resolved manually.</p>
+<div class="rmd-tip">
+<p>
+For GO pathways and gene sets the boxes under each gene will be filled with different colours. The different colours represent different evidence codes. To see the legend specifying what each colour represents click on legend drop down above heatmap.
+</p>
+</div>
+<div class="figure">
+<img src="images/gprofiler/gp7.png" />
+
+</div>
+<ol start="13" type="i">
+<li>
+Set the <em>Term Size</em> slider to minimum 3 and maximum 350. The analysis will consider only more reliable pathways that have three or more genes and no more than 350.
+</li>
+</ol>
+<div class="rmd-tip">
+<p>
+To see the specific numbers used to calculate the statistics for each gene set click on the &quot;&gt;&gt;&quot; in the header of the heatmap. This will add T (number of genes associated with the term), Q (number of genes in the query) , T intersect Q (the number of genes found in both the term and the query), U (the number of genes in the universe).
+</p>
+</div>
+<div class="rmd-tip">
+<p>
+If <em>ordered query</em> is selected then the number of query genes associated with each pathway will fluctuate as g:Profiler sequenctially increases the number of genes tested and finds the set of genes that generate the most significant result.
+</p>
+</div>
+</div>
+<div id="downlaod-enrichment-file" class="section level2">
+<h2>Downlaod Enrichment File</h2>
+<ol start="14" type="i">
+<li>
+Click on the option <em>GEM</em> (Generic Enrichment Map). This file is required for visualizing pathway results with Cytoscape and EnrichmentMap.
+</li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="pathway-enrichment-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="gsea-enrich.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["EnrichmentMap_Protocol.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"new_session": false
+});
+});
+</script>
+
+</body>
+
+</html>

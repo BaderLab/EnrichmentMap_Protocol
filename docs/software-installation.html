@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>(1-5) Software installation | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap</title>
+  <meta name="description" content="updated version of nature protocol" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="(1-5) Software installation | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="updated version of nature protocol" />
+  <meta name="github-repo" content="baderlab/EnrichmentMap_Protocol" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="(1-5) Software installation | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap" />
+  
+  <meta name="twitter:description" content="updated version of nature protocol" />
+  
+
+<meta name="author" content="Ruth Isserlin" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="materials.html"/>
+<link rel="next" href="pathway-enrichment-analysis.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i>Attributions:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html"><i class="fa fa-check"></i>Materials</a><ul>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#equipment"><i class="fa fa-check"></i>Equipment</a><ul>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#hardware"><i class="fa fa-check"></i>Hardware</a></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#software"><i class="fa fa-check"></i>Software</a></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#input-data"><i class="fa fa-check"></i>Input data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="software-installation.html"><a href="software-installation.html"><i class="fa fa-check"></i>(1-5) Software installation</a></li>
+<li class="chapter" data-level="" data-path="pathway-enrichment-analysis.html"><a href="pathway-enrichment-analysis.html"><i class="fa fa-check"></i>Pathway enrichment analysis</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html"><i class="fa fa-check"></i>(6A) Gene list using g:Profiler</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#specify-parameters"><i class="fa fa-check"></i>Specify parameters</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#downlaod-gmt"><i class="fa fa-check"></i>Downlaod GMT</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#run-query"><i class="fa fa-check"></i>Run Query</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#filter-enrichment-results"><i class="fa fa-check"></i>Filter enrichment results</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#downlaod-enrichment-file"><i class="fa fa-check"></i>Downlaod Enrichment File</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html"><i class="fa fa-check"></i>(6B) Ranked gene list using GSEA</a><ul>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#gsea_ts1"><i class="fa fa-check"></i>Loading the required data files into GSEA</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#specifying-parameters"><i class="fa fa-check"></i>Specifying parameters</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#running-gsea"><i class="fa fa-check"></i>Running GSEA</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#examining-gsea-results"><i class="fa fa-check"></i>Examining GSEA results</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="software-installation" class="section level1">
+<h1>(1-5) Software installation</h1>
+<p><strong>Step 1</strong> - Download the required input and output files from the Supplementary Materials of the protocol.</p>
+<ul>
+<li><p>Create two directories, project data folder and results data folder.</p></li>
+<li><p>Place all downloaded input and example output files into the project data folder.</p></li>
+<li><p>As you progress through the protocol, place any newly generated files into the results data folder.</p></li>
+</ul>
+<p><strong>Step 2</strong> - Install Java v.11 or higher. Follow the download and installation instructions for Java JRE at <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" class="uri">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a>.</p>
+<div class="rmd-troubleshooting">
+<p>
+Problem: User does not know whether Java is installed on the computer or which version is installed
+</p>
+<p>
+Solution: The Java website (<a href="https://www.java.com" class="uri">https://www.java.com</a>) has a help page called ‘How to find Java version in Windows or Mac – Manual method’ (<a href="https://www.java.com/en/download/help/version_manual.xml" class="uri">https://www.java.com/en/download/help/version_manual.xml</a>) to find which version of Java is already installed
+</p>
+</div>
+<p><strong>Step 3</strong> - Download the latest version of GSEA. We recommend the javaGSEA desktop application available at <a href="http://www.broadinstitute.org/gsea/downloads.jsp" class="uri">http://www.broadinstitute.org/gsea/downloads.jsp</a>. Free registration is required.</p>
+<p><strong>Step 4</strong> - Download the latest version of Cytoscape from <a href="http://www.cytoscape.org" class="uri">http://www.cytoscape.org</a>. Cytoscape v.3.8.2 or higher is required.</p>
+<p><strong>Step 5</strong> - Install the required Cytoscape applications.</p>
+<ul>
+<li><p>Launch Cytoscape.</p></li>
+<li><p>Go to Apps → App Manager (i.e., open the Apps menu and select the item App Manager).</p></li>
+<li><p>In the Install Apps tab search bar, search for EnrichmentMap.</p></li>
+<li><p>Click on EnrichmentMap Pipeline Collection in the center panel. Verify that it is v.1.0.0 or higher.</p></li>
+<li><p>Click on the Install button.</p></li>
+<li><p>Go to the Currently Installed tab and verify that the applications (EnrichmentMap, clusterMaker2, WordCloud and AutoAnnotate) have been installed.</p></li>
+</ul>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="materials.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pathway-enrichment-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["EnrichmentMap_Protocol.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"new_session": false
+});
+});
+</script>
+
+</body>
+
+</html>

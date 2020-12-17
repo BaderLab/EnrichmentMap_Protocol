@@ -1,0 +1,23 @@
+producer_class	xtools.gsea.GseaPreranked
+producer_timestamp	1608149025696
+param	rpt_label	mesen_vs_immuno
+param	rnd_seed	timestamp
+param	set_min	15
+param	zip_report	false
+param	create_svgs	false
+param	scoring_scheme	weighted
+param	rnk	/Users/ruthisserlin/Dropbox (Bader Lab)/Ruth Isserlin's files/Sourcecode/EnrichmentMap_Protocol/data/Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk
+param	norm	meandiv
+param	out	/Users/ruthisserlin/Dropbox (Bader Lab)/Ruth Isserlin's files/Sourcecode/EnrichmentMap_Protocol/data
+param	mode	Max_probe
+param	include_only_symbols	true
+param	help	false
+param	set_max	200
+param	gmx	/Users/ruthisserlin/Dropbox (Bader Lab)/Ruth Isserlin's files/Sourcecode/EnrichmentMap_Protocol/data/Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt
+param	make_sets	true
+param	plot_top_x	20
+param	gui	false
+param	nperm	1000
+param	collapse	No_Collapse
+
+file	/Users/ruthisserlin/Dropbox (Bader Lab)/Ruth Isserlin's files/Sourcecode/EnrichmentMap_Protocol/data/mesen_vs_immuno.GseaPreranked.1608149025696/index.html

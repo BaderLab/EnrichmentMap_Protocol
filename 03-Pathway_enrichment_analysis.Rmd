@@ -1,0 +1,7 @@
+# Pathway enrichment analysis
+
+**Step 6** - Two major types of gene lists are used in pathway enrichment analysis of omics data. Flat (unranked) gene lists of dozens to thousands of genes can be analyzed using g:Profiler (option A). A statistical threshold is required to compile a gene list from omics data. By contrast, ranked, whole-genome gene lists are suitable for pathway enrichment analysis using GSEA (option B). Gene lists analyzed with GSEA do not require prior filtering using statistical thresholds. Partial, filtered ranked gene lists can also be analyzed with g:Profiler. Select Step 6A or 6B, depending on the type of gene list you have.
+
+ [Pathway enrichment analysis of a gene list using g:Profiler)](#gprofiler-enrich)    
+
+  [Pathway enrichment analysis of a ranked gene list using GSEA](#gsea-enrich) 

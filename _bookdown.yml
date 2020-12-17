@@ -1,0 +1,11 @@
+book_filename: "EnrichmentMap_Protocol"
+language:
+  ui:
+    chapter_name: ""
+delete_merged_file: true
+repo: https://https://github.com/baderlab/EnrichmentMap_Protocol
+output_dir: docs
+rmd_files: ["index.Rmd","01-Materials.Rmd","02-Software_installation.Rmd","03-Pathway_enrichment_analysis.Rmd","04-Pathway_enrichment_analysis_gprofiler.Rmd","05-Pathway_enrichment_analysis_gsea.Rmd"]
+clean: [packages.bib, bookdown.bbl]
+new_session: no
+bookdown::gitbook:

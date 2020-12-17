@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>(6B) Ranked gene list using GSEA | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap</title>
+  <meta name="description" content="updated version of nature protocol" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="(6B) Ranked gene list using GSEA | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="updated version of nature protocol" />
+  <meta name="github-repo" content="baderlab/EnrichmentMap_Protocol" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="(6B) Ranked gene list using GSEA | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap" />
+  
+  <meta name="twitter:description" content="updated version of nature protocol" />
+  
+
+<meta name="author" content="Ruth Isserlin" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="gprofiler-enrich.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i>Attributions:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html"><i class="fa fa-check"></i>Materials</a><ul>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#equipment"><i class="fa fa-check"></i>Equipment</a><ul>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#hardware"><i class="fa fa-check"></i>Hardware</a></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#software"><i class="fa fa-check"></i>Software</a></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#input-data"><i class="fa fa-check"></i>Input data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="software-installation.html"><a href="software-installation.html"><i class="fa fa-check"></i>(1-5) Software installation</a></li>
+<li class="chapter" data-level="" data-path="pathway-enrichment-analysis.html"><a href="pathway-enrichment-analysis.html"><i class="fa fa-check"></i>Pathway enrichment analysis</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html"><i class="fa fa-check"></i>(6A) Gene list using g:Profiler</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#specify-parameters"><i class="fa fa-check"></i>Specify parameters</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#downlaod-gmt"><i class="fa fa-check"></i>Downlaod GMT</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#run-query"><i class="fa fa-check"></i>Run Query</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#filter-enrichment-results"><i class="fa fa-check"></i>Filter enrichment results</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#downlaod-enrichment-file"><i class="fa fa-check"></i>Downlaod Enrichment File</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html"><i class="fa fa-check"></i>(6B) Ranked gene list using GSEA</a><ul>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#gsea_ts1"><i class="fa fa-check"></i>Loading the required data files into GSEA</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#specifying-parameters"><i class="fa fa-check"></i>Specifying parameters</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#running-gsea"><i class="fa fa-check"></i>Running GSEA</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#examining-gsea-results"><i class="fa fa-check"></i>Examining GSEA results</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="gsea-enrich" class="section level1">
+<h1>(6B) Ranked gene list using GSEA</h1>
+<div id="gsea_ts1" class="section level2">
+<h2>Loading the required data files into GSEA</h2>
+<ol style="list-style-type: lower-roman">
+<li>Launch GSEA by double clicking on the installed Application.</li>
+</ol>
+<div class="rmd-troubleshooting">
+<p>
+<strong>Unable to launch GSEA</strong>
+</p>
+<p>
+When launching GSEA on macOS for the first time, you may get the error ‘gsea.jnlp cannot be opened because it is from an unidentified developer’.
+</p>
+<p>
+Follow instructions specified on download page:
+</p>
+<p>
+<img src="images/gsea/gsea_troubleshooting.png" alt="get_gmt" width="50%" />
+</p>
+<ul>
+<li>
+If you see this error message:
+</li>
+</ul>
+<p>
+<img src="images/gsea/gsea_mac_launch_error.png" alt="get_gmt" width="50%" />
+</p>
+<ul>
+<li>
+Open Settings -&gt; Security &amp; Privacy
+</li>
+<li>
+Click on &quot;Open Anyways&quot;
+</li>
+</ul>
+<p>
+<img src="images/gsea/privacy_setting.png" alt="get_gmt" width="75%" />
+</p>
+<p>
+If GSEA still fails to launch, GSEA can alternatively be launched from the command line.
+</p>
+<ul>
+<li>
+Go to the GSEA download site (<a href="http://www.broadinstitute.org/gsea/downloads.jsp" class="uri">http://www.broadinstitute.org/gsea/downloads.jsp</a>) and download the javaGSEA JAR file (the second option on the download site).
+</li>
+<li>
+Open a command-line terminal.
+<ul>
+<li>
+On macOS, the terminal can be found in Applications → Utilities → Terminal.
+</li>
+<li>
+On Windows, type <code>cmd</code> in the Windows program files search bar.
+</li>
+</ul>
+</li>
+<li>
+Then navigate to the directory where the file javaGSEA.jar was downloaded, using the command cd. For example, on macOS run cd ~/Downloads if you downloaded the GSEA.jar file to your Downloads folder.
+</li>
+<li>
+Run the command java –Xmx4G –jar gsea-3.0.jar, where –Xmx specifies how much memory is given to GSEA.
+</li>
+</ul>
+</div>
+<br><br>
+<p align="center">
+<img src="images/gsea/gsea1.png" alt="workflow" width="75%" align="right" />
+</p>
+<ol start="2" type="i">
+<li>
+Click on <em>Load Data</em> in the top left corner of the <em>Steps in GSEA Analysis</em> section.
+</li>
+<li>
+In the <em>Load Data</em> tab, click on <em>Browse for files …</em>
+</li>
+<li>
+Load your ranked genes and GMT file
+</li>
+</ol>
+<ul>
+<li>Find your project data folder and select the <a href="./data/Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk">Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk</a> file.</li>
+<li>Also select the pathway gene set definition (GMT), <a href="./data/Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt">Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt</a> file using a multiple-select method such as shift-click. <img src="images/gsea/gsea2.png" alt="Success" width="75%" /><br />
+</li>
+<li>Click the Choose button to continue.</li>
+<li>A message box indicates that the files were loaded successfully. <img src="images/gsea/gsea3.png" alt="Success" width="75%" /></li>
+<li>Click the OK button to continue.</li>
+</ul>
+<div class="rmd-troubleshooting">
+<p>
+<strong>GSEA seems non-responsive</strong> It may take 5–10 s for GSEA to load input files. The files are loaded successfully once a message appears on the screen, e.g., ‘Files loaded successfully: 2/2. There were no errors’
+</p>
+</div>
+<div class="rmd-tip">
+<p>
+Alternatively, you can choose <strong>Method 3</strong> to <strong>drag and drop files here</strong>; you need to click on the <strong>Load these files!</strong> button in this case.
+</p>
+</div>
+<div class="rmd-note">
+<p>
+<strong>Creating your own files for GSEA</strong>
+</p>
+<p>
+GSEA has a useful help documentation on file formats available at <a href="https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats" class="uri">https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats</a>
+</p>
+</div>
+</div>
+<div id="specifying-parameters" class="section level2">
+<h2>Specifying parameters</h2>
+<ol start="5" type="i">
+<li>
+Click on <em>Run GSEAPreranked</em> in the side bar under Tools. The <em>Run GSEA on a Pre-Ranked gene list</em> tab will appear.
+</li>
+<li>
+<em>Gene sets database</em>. Click on the button ‘(…)’ located to the right and wait a few seconds for the gene set selection window to appear.
+</li>
+</ol>
+<ul>
+<li>Go to the Gene matrix (local gmx/gmt) tab by using the top right arrow.</li>
+<li>Click on the downloaded local GMT file, ‘Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt’. <img src="images/gsea/gsea4.png" alt="Gene sets database" width="75%" /></li>
+<li>click on OK at the bottom of the window.</li>
+</ul>
+<div class="rmd-note">
+<p>
+<strong>GMT files</strong>
+</p>
+<p>
+GSEA also supplies its own gene set files, which are accessible directly through the GSEA interface from the MSigDB resource<span class="citation"><span class="citation">(Liberzon et al. <a href="#ref-msigdb">2011</a>, <span class="citation">Liberzon et al. (<a href="#ref-hallmark">2015</a>)</span>)</span></span>. These files do not need to be imported into GSEA. To define the GMT file, find the MSigDB gene set files in the first tab, Gene Matrix (from website), of the Select one or more genesets dialog. The latest versions of the MSigDB gene set files are shown in bold, but the earlier versions can also be accessed. To select multiple gene set files, click on the desired files while holding the control key in Windows or the command key in macOS.
+</p>
+</div>
+<p><img src="images/gsea/GSEAParameters.png" alt="GSEAparameters" width="100%" /></p>
+<ol start="7" type="i">
+<li>
+<em>Number of permutations</em>. This specifies the number of times that the gene sets will be randomized to create the null distribution to calculate the P value and FDR Q value. Use the default value of 1,000 permutations.
+</li>
+</ol>
+<div class="rmd-note">
+<p>
+Higher numbers of permutations require longer computation times. To calculate the FDR Q value for each gene set, the dataset is randomized by permuting the genes in each gene set and recalculating the P values for the randomized set. This parameter specifies how many times this randomization is done. The more randomizations are performed, the more precise the FDR Q value estimation will be (to a limit, as eventually the FDR Q value will stabilize at the actual value). On a Windows machine with 16 G of RAM and an i7 3.4-GHz processor, an analysis with 10, 100, 500 or 1,000 randomizations on our example set with the above defined parameters takes 155, 224, 544, and 1,012 s, respectively.
+</p>
+</div>
+<ol start="8" type="i">
+<li>
+<em>Ranked List</em> - Select the ranked gene list by clicking on the right-most arrows and highlighting the rank file <a href="./data/Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk">Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk</a>.
+</li>
+<li>
+<em>Collapse/Remap to gene symbols</em> - Change to <em>No_collapse</em>. (Our rank file already contains the gene symbols so we don't need GSEA to try and convert probe names to gene symbols)
+</li>
+<li>
+Click the <em>Show</em> button next to <em>Basic fields</em> to display additional options.
+</li>
+<li>
+<em>Analysis name</em>. Change the default ‘my_analysis’ to a specific name, for example, ‘Mesen_vs_Immuno’.
+</li>
+<li>
+<em>Max size:</em> exclude larger sets. By default, GSEA sets the upper limit to 500. Set this to <strong>200</strong> to remove the larger sets from the analysis.
+</li>
+<li>
+<em>Save results in this folder</em>. Navigate to the folder where GSEA should save the results. We recommend you choose the <em>result data folder</em> created in Step 1. Otherwise, GSEA will use the default location ‘gsea_home/output/[date]’ in your home directory.
+</li>
+</ol>
+<div class="rmd-tip">
+<p>
+set <strong>Enrichment Statistics</strong> to p2 if you want to add more weight on the most top up-regulated and top down-regulated. <strong>P2</strong> is a more stringent parameter and it will result in less gene-sets significant under FDR &lt;0.05.
+</p>
+</div>
+</div>
+<div id="running-gsea" class="section level2">
+<h2>Running GSEA</h2>
+<ol start="14" type="i">
+<li>
+Run GSEA by clicking on the <em>Run</em> button located at the bottom of the window. Expand the window if the button is not visible. The GSEA reports pane at the bottom left of the window will show the status ‘Running’. It will be updated to ‘Success’ upon completion. This is expected to be a long-running process, depending on the speed of your computer.
+</li>
+</ol>
+<div class="rmd-tip">
+<p>
+<strong>GSEA looks non-responsive, but it is actually computing enrichments</strong>
+</p>
+<p>
+GSEA has no progress bar to indicate estimated time to completion. A run can take a few minutes or hours, depending on the size of the data and the computer speed.
+</p>
+<ul>
+<li>
+Click on the ‘+’ in the bottom left corner of the screen to see messages such as ‘shuffleGeneSet for GeneSet 76/4714 nperm: 1000’ . This message indicates that GSEA is shuffling 4,714 gene sets 1,000 times each, 76 of which are complete. Once the permutations are complete, GSEA generates the report
+</li>
+</ul>
+<p>
+<img src="images/gsea/gsea6.png" alt="GSEAparameters" width="100%" />
+</p>
+</div>
+<div class="rmd-troubleshooting">
+<p>
+<strong>Error message 'Java Heap space'</strong>
+</p>
+<p>
+The error message ‘Java Heap space’ indicates that the software has run out of memory. Another version of GSEA is needed if you are running the GSEA desktop application. There are multiple options available for download from the GSEA website. You can download a webstart application that launches GSEA with 1, 2, 4 or 8 GB of RAM. Upgrade to a webstart that launches with more memory. If you are already using the webstart that launches with 8 GB, then you require a GSEA JAVA .jar file, which can be executed from the command line with increased memory (see <a href="gsea-enrich.html#gsea_ts1">Troubleshooting for Step 6B(i)</a> for details)
+</p>
+</div>
+</div>
+<div id="examining-gsea-results" class="section level2">
+<h2>Examining GSEA results</h2>
+<ol start="15" type="i">
+<li>
+Once the GSEA analysis is complete, a green notification ‘Success’ will appear in the bottom left section of the screen.
+</li>
+</ol>
+<p><img src="images/gsea/gsea5.png" alt="GSEAparameters" width="100%" /></p>
+<ul>
+<li>All GSEA output files will be automatically saved and be available in the folder you specified in the GseaPreranked interface (Step 6B(xiii)).</li>
+<li>Click on Success to open the results in your web browser.</li>
+</ul>
+<div class="rmd-tip">
+<p>
+Pathways enriched in top-ranking genes (i.e., upregulated) are shown in the first set (‘na_pos’; ‘mesenchymal’ in this protocol) and pathways enriched in bottom-ranked genes (i.e., downregulated) are shown in the second set (‘na_neg’; ‘immunoreactive’)
+</p>
+</div>
+<div class="rmd-troubleshooting">
+<p>
+<strong>User needs to access previous results but cannot find them</strong>
+</p>
+<p>
+If the GSEA software is closed, you can access previous results by:
+</p>
+<ul>
+<li>
+opening the working folder and opening the ‘index.html’ file.
+</li>
+<li>
+Alternatively, you can re-launch GSEA and click on:
+<ul>
+<li>
+Analysis history,
+</li>
+<li>
+then History and
+</li>
+<li>
+then navigate to date of your analysis.
+</li>
+</ul>
+Although all analyses, regardless of where the results files were saved, are listed under history, they are organized by the date the analyses were run. If you cannot remember when you ran a specific analysis, then you may have to manually search through a few directories to find the desired analysis
+</li>
+</ul>
+</div>
+<p><img src="images/gsea/gsea_results.png" alt="GSEAresults" width="100%" /></p>
+<p>A. Web page summary of GSEA results showing pathways enriched in the top or bottom of the ranked list, with the ‘na_pos’ and ‘na_neg’ phenotypes corresponding to enrichment in upregulated and downregulated genes, respectively. These have been manually labeled here as mesenchymal and immunoreactive, respectively. A. An example enrichment plot for the top pathway in the mesenchymal set. A. An example enrichment plot for the top pathway in the immunoreactive set.</p>
+<ol start="16" type="i">
+<li>
+In the web browser results summary, click on the <em>Snapshot</em> link under the results to get an overview of the top 20 findings. The most significant pathways for the first phenotype (‘na_pos’) should clearly display enrichment in top-ranking (i.e., upregulated) genes (left side of the plot). Conversely, the most significant pathways for the second phenotype (‘na_neg’) should clearly display enrichment in bottom-ranked (i.e., downregulated) genes (right side of the plot)
+</li>
+</ol>
+<p><img src="images/gsea/gsea_snapshot.png" alt="GSEAsnapshot" width="75%" /></p>
+<div class="rmd-tip">
+<p>
+When running GSEA with expression data as input (instead of a pre-calculated rank file), a phenotype label (i.e., biological condition or sample class) is provided as input for each sample and specified in the GSEA ‘cls’ file. When running GSEA, the two phenotypes to compare for differential gene expression analysis are specified and these phenotypes are used in the pathway enrichment result files. By contrast, in a GSEA preranked analysis (i.e., when a ranked gene list is provided by the user), GSEA automatically labels one phenotype ‘na_pos’ (corresponding to enrichment in the genes at the top of the ranked list, where ‘na’ means the phenotype label is ‘not available’) and the other ‘na_neg’ (corresponding to enrichment in the genes at the bottom of the ranked list). This convention is also used by the EnrichmentMap software, designating the first phenotype as ‘positive’ and the second phenotype as ‘negative’.
+</p>
+<p>
+<img src="images/gsea/gsea_results_details.png" alt="GSEAsnapshot" width="100%" />
+</p>
+<p>
+Class/phenotype-specific GSEA output in the web page summary shows how many gene sets were found enriched in upregulated genes, regardless of significance (purple), the total number of gene sets used after size filtering (cyan), the phenotype name (red) and the number of gene sets that pass different thresholds (orange).
+</p>
+</div>
+<ol start="17" type="i">
+<li>
+In the web browser results summary, click on Detailed enrichment results in HTML format and use the row numbering to check the number of pathways that have FDR Q values &lt;0.05 to determine appropriate thresholds for EnrichmentMap in the next step of the protocol.
+</li>
+</ol>
+<ul>
+<li>If no pathways are reported at Q &lt; 0.05, more lenient thresholds such as Q &lt; 0.1 or Q &lt; 0.25 could be used. The threshold Q &lt; 0.25 provides very lenient filtering, and it is not uncommon to find thousands of enriched pathways at this level. Robust analyses should use a cutoff of Q &lt; 0.05 or lower. Filtering only by uncorrected P values is inappropriate and not recommended.</li>
+</ul>
+<div class="rmd-troubleshooting">
+<p>
+<strong>Few or no results returned by GSEA</strong>
+</p>
+<p>
+Check the number of gene sets that were analyzed. If the number is low (e.g., low hundreds), it could indicate gene ID mapping problems
+</p>
+</div>
+
+<div id="refs" class="references">
+<div>
+<p>Ashburner, Michael, Catherine A Ball, Judith A Blake, David Botstein, Heather Butler, J Michael Cherry, Allan P Davis, et al. 2000. “Gene Ontology: Tool for the Unification of Biology.” <em>Nature Genetics</em> 25 (1). Nature Publishing Group: 25–29.</p>
+</div>
+<div>
+<p>Caspi, Ron, Richard Billington, Luciana Ferrer, Hartmut Foerster, Carol A Fulcher, Ingrid M Keseler, Anamika Kothari, et al. 2016. “The Metacyc Database of Metabolic Pathways and Enzymes and the Biocyc Collection of Pathway/Genome Databases.” <em>Nucleic Acids Research</em> 44 (D1). Oxford University Press: D471–D480.</p>
+</div>
+<div>
+<p>Fabregat, Antonio, Konstantinos Sidiropoulos, Phani Garapati, Marc Gillespie, Kerstin Hausmann, Robin Haw, Bijay Jassal, et al. 2016. “The Reactome Pathway Knowledgebase.” <em>Nucleic Acids Research</em> 44 (D1). Oxford University Press: D481–D487.</p>
+</div>
+<div>
+<p>Kandasamy, Kumaran, S Sujatha Mohan, Rajesh Raju, Shivakumar Keerthikumar, Ghantasala S Sameer Kumar, Abhilash K Venugopal, Deepthi Telikicherla, et al. 2010. “NetPath: A Public Resource of Curated Signal Transduction Pathways.” <em>Genome Biology</em> 11 (1). BioMed Central: 1–9.</p>
+</div>
+<div>
+<p>Liberzon, Arthur, Chet Birger, Helga Thorvaldsdóttir, Mahmoud Ghandi, Jill P Mesirov, and Pablo Tamayo. 2015. “The Molecular Signatures Database Hallmark Gene Set Collection.” <em>Cell Systems</em> 1 (6). Elsevier: 417–25.</p>
+</div>
+<div>
+<p>Liberzon, Arthur, Aravind Subramanian, Reid Pinchback, Helga Thorvaldsdóttir, Pablo Tamayo, and Jill P Mesirov. 2011. “Molecular Signatures Database (Msigdb) 3.0.” <em>Bioinformatics</em> 27 (12). Oxford University Press: 1739–40.</p>
+</div>
+<div>
+<p>Mi, Huaiyu, Anushya Muruganujan, and Paul D Thomas. 2012. “PANTHER in 2013: Modeling the Evolution of Gene Function, and Other Gene Attributes, in the Context of Phylogenetic Trees.” <em>Nucleic Acids Research</em> 41 (D1). Oxford University Press: D377–D386.</p>
+</div>
+<div>
+<p>Schaefer, Carl F, Kira Anthony, Shiva Krupa, Jeffrey Buchoff, Matthew Day, Timo Hannay, and Kenneth H Buetow. 2009. “PID: The Pathway Interaction Database.” <em>Nucleic Acids Research</em> 37 (suppl_1). Oxford University Press: D674–D679.</p>
+</div>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-hallmark">
+<p>Liberzon, Arthur, Chet Birger, Helga Thorvaldsdóttir, Mahmoud Ghandi, Jill P Mesirov, and Pablo Tamayo. 2015. “The Molecular Signatures Database Hallmark Gene Set Collection.” <em>Cell Systems</em> 1 (6). Elsevier: 417–25.</p>
+</div>
+<div id="ref-msigdb">
+<p>Liberzon, Arthur, Aravind Subramanian, Reid Pinchback, Helga Thorvaldsdóttir, Pablo Tamayo, and Jill P Mesirov. 2011. “Molecular Signatures Database (Msigdb) 3.0.” <em>Bioinformatics</em> 27 (12). Oxford University Press: 1739–40.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="gprofiler-enrich.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["EnrichmentMap_Protocol.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"new_session": false
+});
+});
+</script>
+
+</body>
+
+</html>

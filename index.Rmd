@@ -1,0 +1,37 @@
+--- 
+title: "Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap"
+subtitle: "Updated to latest software versions"
+author: "Ruth Isserlin"
+date: "last modified `r Sys.Date()`"
+site: bookdown::bookdown_site
+output:   bookdown::gitbook
+documentclass: book
+bibliography: [references.bib]
+biblio-style: nature.csl
+link-citations: true
+github-repo: baderlab/EnrichmentMap_Protocol
+description: "updated version of nature protocol"
+download: ["epub"]
+---
+
+# About
+
+Original content was published [Reimand, J., Isserlin, R., Voisin, V. et al. Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap. Nat Protoc 14, 482–517 (2019). https://doi.org/10.1038/s41596-018-0103-9](https://www.nature.com/articles/s41596-018-0103-9) and this book only updates relevant steps in the protocol procedures section to reflect later versions of software packages. 
+ 
+## Attributions:
+
+This book was created using The **bookdown** package and can be installed from CRAN or Github:
+
+```{r eval=FALSE}
+install.packages("bookdown")
+# or the development version
+# devtools::install_github("rstudio/bookdown")
+```
+
+```{r include=FALSE}
+#initialize the task counter
+task_counter <- 0
+```
+
+
+Icons are from the [“Very Basic. Android L Lollipop” set by Ivan Boyko](https://www.iconfinder.com/iconsets/very-basic-android-l-lollipop) licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). 

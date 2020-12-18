@@ -1,0 +1,18 @@
+# (7-9) Visualization of enrichment results with EnrichmentMap
+
+**Step 7** - Launch the Cytoscape software.
+
+```{block, type="rmd-tip"}
+Introductory Cytoscape tutorials can be found at http://tutorials.cytoscape.org.
+```
+
+**Step 8** - In the menu, click *Apps → EnrichmentMap*.
+
+**Step 9** - The Create Enrichment Map panel will appear. Creation of enrichment maps with g:Profiler (option A) and GSEA (option B) requires different input files.
+
+Other than the specific input files, the parameters are the same for the two analysis types. Attributes surrounded by a dashed box should be filled out automatically if the user selects an appropriate folder with the required files. Missing file names indicate that EnrichmentMap was unable to find the specified file. Orange boxes indicate optional files. For the examples presented in the protocol, optional files are used for the GSEA analysis but not for the g:Profiler analysis to demonstrate the two distinct use cases. EM, EnrichmentMap.
+
+[g:Profiler - Creation of enrichment maps for results generated in Step 6A](#gprofiler-em)
+
+[GSEA - Creation of enrichment maps for results generated in Step 6B](#gsea-em)
+

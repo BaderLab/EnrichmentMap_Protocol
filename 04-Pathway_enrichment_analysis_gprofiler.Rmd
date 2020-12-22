@@ -70,7 +70,7 @@ if g:Profiler does not return any results uncheck the *No electronic GO annotati
 
   * (Optional) concatenate the GO:BP and Reactome gmt files:
 
-If you want to create a smaller gmt file that doesn't contain all of the gprofiler datasources you can instead download name.gmt.zip that contains each datasource as its own GMT file.  You will need to concatenate the sources you require into one GMT file to use for later.
+If you want to create a smaller gmt file that doesn't contain all of the gprofiler data sources you can instead download name.gmt.zip that contains each data source as its own GMT file.  You will need to concatenate the sources you require into one GMT file to use for later.
 
 #### Option 1: Merge manually, if you are not familiar with unix commands
    * open a text editor such a Notepad or equivalent
@@ -105,7 +105,7 @@ you will be using this optional hsapiens.pathways.name.gmt file in Cytoscape Enr
 If you miss the button changing from "..." to &check; it might appear that nothing has happened.  Scroll down to see results.
 ```
 
-A graphical map of the resulting pathways will be shown, with the -log10(pvalue) along the y axis and the associated pathways of the input list shown along the x axis divided by datasource.  By default, results with Q values <0.05 are reported but all pathways are shown in the graphical map with a dotted line indicating which pathways are significant and pass correction.
+A graphical map of the resulting pathways will be shown, with the -log10(pvalue) along the y axis and the associated pathways of the input list shown along the x axis divided by data source.  By default, results with Q values <0.05 are reported but all pathways are shown in the graphical map with a dotted line indicating which pathways are significant and pass correction.
 
 ![](./images/gprofiler/gp6.png)
 ```{block, type="rmd-tip"}
@@ -135,7 +135,7 @@ To see the specific numbers used to calculate the statistics for each gene set c
 ```
 
 ```{block, type="rmd-tip"}
-If *ordered query* is selected then the number of query genes associated with each pathway will fluctuate as g:Profiler sequenctially increases the number of genes tested and finds the set of genes that generate the most significant result. 
+If *ordered query* is selected then the number of query genes associated with each pathway will fluctuate as g:Profiler sequentially increases the number of genes tested and finds the set of genes that generate the most significant result. 
 ```
 
 ## Downlaod Enrichment File

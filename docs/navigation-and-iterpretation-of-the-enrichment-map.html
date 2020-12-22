@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Navigation and iterpretation of the enrichment map | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap</title>
+  <meta name="description" content="updated version of nature protocol" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Navigation and iterpretation of the enrichment map | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="updated version of nature protocol" />
+  <meta name="github-repo" content="baderlab/EnrichmentMap_Protocol" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Navigation and iterpretation of the enrichment map | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap" />
+  
+  <meta name="twitter:description" content="updated version of nature protocol" />
+  
+
+<meta name="author" content="Ruth Isserlin" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="gsea-em.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i>Attributions:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html"><i class="fa fa-check"></i>Materials</a><ul>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#equipment"><i class="fa fa-check"></i>Equipment</a><ul>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#hardware"><i class="fa fa-check"></i>Hardware</a></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#software"><i class="fa fa-check"></i>Software</a></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#input-data"><i class="fa fa-check"></i>Input data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="software-installation.html"><a href="software-installation.html"><i class="fa fa-check"></i>(1-5) Software installation</a></li>
+<li class="chapter" data-level="" data-path="pathway-enrichment-analysis.html"><a href="pathway-enrichment-analysis.html"><i class="fa fa-check"></i>Pathway enrichment analysis</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html"><i class="fa fa-check"></i>(6A) Gene list using g:Profiler</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#specify-parameters"><i class="fa fa-check"></i>Specify parameters</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#downlaod-gmt"><i class="fa fa-check"></i>Downlaod GMT</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#run-query"><i class="fa fa-check"></i>Run Query</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#filter-enrichment-results"><i class="fa fa-check"></i>Filter enrichment results</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#downlaod-enrichment-file"><i class="fa fa-check"></i>Downlaod Enrichment File</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html"><i class="fa fa-check"></i>(6B) Ranked gene list using GSEA</a><ul>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#gsea_ts1"><i class="fa fa-check"></i>Loading the required data files into GSEA</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#specifying-parameters"><i class="fa fa-check"></i>Specifying parameters</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#running-gsea"><i class="fa fa-check"></i>Running GSEA</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#examining-gsea-results"><i class="fa fa-check"></i>Examining GSEA results</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="visualization-of-enrichment-results-with-enrichmentmap.html"><a href="visualization-of-enrichment-results-with-enrichmentmap.html"><i class="fa fa-check"></i>(7-9) Visualization of enrichment results with EnrichmentMap</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html"><i class="fa fa-check"></i>(9A) g:Profiler - Creation of enrichment maps for results generated in Step 6A</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#parameter-specification"><i class="fa fa-check"></i>Parameter specification</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#specification-of-additional-optional-files"><i class="fa fa-check"></i>Specification of additional optional files:</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#tuning-parameters"><i class="fa fa-check"></i>Tuning parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea-em.html"><a href="gsea-em.html"><i class="fa fa-check"></i>(9B) GSEA - Creation of enrichment maps for results generated in Step 6B</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#parameter-specification"><i class="fa fa-check"></i>Parameter specification</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#specification-of-additional-optional-files"><i class="fa fa-check"></i>Specification of additional optional files:</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#tuning-parameters"><i class="fa fa-check"></i>Tuning parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="navigation-and-iterpretation-of-the-enrichment-map.html"><a href="navigation-and-iterpretation-of-the-enrichment-map.html"><i class="fa fa-check"></i>Navigation and iterpretation of the enrichment map</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="navigation-and-iterpretation-of-the-enrichment-map" class="section level1">
+<h1>Navigation and iterpretation of the enrichment map</h1>
+<p>An enrichment map must be interpreted to discover novel information about a dataset and must be manually refined to create a publication-quality figure.</p>
+<ol start="10" style="list-style-type: decimal">
+<li>To explore the enrichment map, select the network of interest in the <em>Control Panel</em> located at the left side of the Cytoscape window.</li>
+</ol>
+<p align="center">
+<img src="images/cytoscape/cyto1.png" alt="cyto_main" width="100%"  />
+</p>
+<ol style="list-style-type: lower-roman">
+<li>Cytoscape ‘Control Panel’, which contains ‘Networks’, ‘Styles’ and ‘Select’ tabs as well as the ‘EnrichmentMap’ main panel.</li>
+<li>The ‘Table Panel’ contains tables with node, edge and network attributes, as well as an enrichment map ‘Heat Map’ panel displaying expression for genes associated with selected nodes and edges.</li>
+<li>Cytoscape search bar, which can be used to search for genes in the enrichment map.</li>
+<li>‘Node Table’ containing values for all variables associated with each node in the network.</li>
+<li>Q-value or P-value slider bar. By default, the slider is set to Q value if the data contains Q values but can be changed to use P values by selecting the ‘P-value’ radio button. All nodes that pass the initial Q-value threshold are displayed in the enrichment map. By moving the slider to the left, the Q-value threshold is adjusted to a lower value, removing any nodes that do not pass the Q-value threshold. The currently set threshold will be displayed in the accompanying text box. Thresholds can be manually adjusted by modifying the text box value directly.</li>
+<li>‘Edge Cutoff (Similarity)’ slider bar. The slider bar modifies the similarity threshold. The similarity threshold can only be increased; i.e., edges are required to have more genes in common in order to remain visible, which will remove edges from the network that do not satisfy the threshold. One can also manually change the threshold by modifying the text box value directly.</li>
+</ol>
+<ul>
+<li>The Network Panel can be selected using the top most tab of the Control Panel.
+<ul>
+<li><p align="center">
+<img src="images/cytoscape/cyto2.png" alt="networktab" width="100%"  />
+</p></li>
+</ul></li>
+<li>The selected network will appear in the main window; navigate to it (zoom and pan) using Cytoscape controls, and
+<ul>
+<li><p align="center">
+<img src="images/cytoscape/cyto3.png" alt="navigation" width="100%"  />
+</p></li>
+</ul></li>
+<li>explore the pathways by reading the gene set labels. Pathways with many common genes often represent similar biological processes and are grouped together as sub-networks or themes in the network. Click on a node to display the corresponding genes in the table below the network view.</li>
+</ul>
+<div class="rmd-troubleshooting">
+<p>
+<strong>Few or no pathways are present in EnrichmentMap</strong>
+</p>
+<p>
+A pathway enrichment analysis resulting in few or no enriched pathways may be caused by suboptimal statistical processing used to define the original gene list. Enriched pathways are unlikely to be found if the gene list ranks are too noisy and the most important genes are not at the top of the list, no genes are highly significant, or a large fraction of genes are highly significant. If the gene list has been correctly defined, analyzing further databases of pathways and gene sets or setting more liberal filters may improve results
+</p>
+</div>
+<ol start="11" style="list-style-type: decimal">
+<li>To find a gene or pathway of interest, type its name in the search bar located in the top right corner. All pathways containing that gene will be highlighted. For example, TP53 and BGN are the top genes in g:Profiler and GSEA analyses, respectively.
+<ul>
+<li><p align="center">
+<img src="images/cytoscape/cyto4.png" alt="search" width="100%"  />
+</p></li>
+</ul></li>
+</ol>
+<div class="rmd-troubleshooting">
+<p>
+<strong>User cannot find any pathways with search gene</strong>
+</p>
+<p>
+Multiple genes separated by spaces can be entered into the search bar. Any pathway that contains the gene will be selected and highlighted in the network. Adding keywords with ‘AND’ into the search bar will show only pathways that contain all genes in the search query (e.g., ‘geneA AND geneB’). If the original analysis did not use gene symbols, then you will not be able to search by gene symbols. Instead, use the identifier type that the analysis was based on, for example Entrez Gene ID or Ensembl gene ID
+</p>
+</div>
+<ol start="12" style="list-style-type: decimal">
+<li>To find the most enriched pathways:</li>
+</ol>
+<ul>
+<li>look at the Table Panel located below the network view.</li>
+<li>Select the Node Table tab , and</li>
+<li>Select and sort the column named ‘EM#_fdr_qvalue’ (for g:Profiler) or ‘EM#_NES’ (for GSEA) by clicking on the column header.</li>
+<li>To highlight a subset of these pathways in the network, select rows corresponding to the pathways of interest, right-click on any selected row in the table and select <em>Select nodes from selected rows</em>.</li>
+</ul>
+<div class="rmd-tip">
+<p>
+You can reduce the number of columns displayed in the Node table by changing the selected columns by clicking on the column icon in the Table viewer. * By default all the enrichment map columns are selected.
+</p>
+<ul>
+<li>
+<p align="center">
+<img src="images/cytoscape/cyto5.png" alt="columns" width="100%"  />
+</p>
+</li>
+</ul>
+</div>
+<div class="rmd-troubleshooting">
+<p>
+<strong>There are very few entries in the node table, although the network contains many nodes</strong>
+</p>
+<p>
+If there are very few records in the node table, make sure that no nodes are selected in the network. Or click on the gear icon and change the setting from Auto to Show all
+</p>
+<ul>
+<li>
+<p align="center">
+<img src="images/cytoscape/cyto6.png" alt="config" width="100%"  />
+</p>
+</li>
+</ul>
+</div>
+<ol start="13" style="list-style-type: decimal">
+<li>Depending on the focus of the analysis, there are different actions that can be taken on the resulting enrichment map.</li>
+</ol>
+<ul>
+<li>Follow option A to explore the Table Panel heat map;</li>
+<li>option B to organize and clarify the network;</li>
+<li>option C to define major biological themes;</li>
+<li>option D to create a simplified network view;</li>
+<li>option E to manually arrange the network nodes; and</li>
+<li>option F to create a subnetwork that highlights a specific theme subset. * Skip ahead to Step 14 to save the image and to generate legends.</li>
+</ul>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="gsea-em.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["EnrichmentMap_Protocol.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"new_session": false
+});
+});
+</script>
+
+</body>
+
+</html>

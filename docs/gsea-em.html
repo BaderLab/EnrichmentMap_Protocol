@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>(9B) GSEA - Creation of enrichment maps for results generated in Step 6B | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap</title>
+  <meta name="description" content="updated version of nature protocol" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="(9B) GSEA - Creation of enrichment maps for results generated in Step 6B | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="updated version of nature protocol" />
+  <meta name="github-repo" content="baderlab/EnrichmentMap_Protocol" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="(9B) GSEA - Creation of enrichment maps for results generated in Step 6B | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap" />
+  
+  <meta name="twitter:description" content="updated version of nature protocol" />
+  
+
+<meta name="author" content="Ruth Isserlin" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="gprofiler-em.html"/>
+<link rel="next" href="navigation-and-interpretation-of-the-enrichment-map.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i>Attributions:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html"><i class="fa fa-check"></i>Materials</a><ul>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#equipment"><i class="fa fa-check"></i>Equipment</a><ul>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#hardware"><i class="fa fa-check"></i>Hardware</a></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#software"><i class="fa fa-check"></i>Software</a></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#input-data"><i class="fa fa-check"></i>Input data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="software-installation.html"><a href="software-installation.html"><i class="fa fa-check"></i>(1-5) Software installation</a></li>
+<li class="chapter" data-level="" data-path="pathway-enrichment-analysis.html"><a href="pathway-enrichment-analysis.html"><i class="fa fa-check"></i>Pathway enrichment analysis</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html"><i class="fa fa-check"></i>(6A) Gene list using g:Profiler</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#specify-parameters"><i class="fa fa-check"></i>Specify parameters</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#downlaod-gmt"><i class="fa fa-check"></i>Downlaod GMT</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#run-query"><i class="fa fa-check"></i>Run Query</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#filter-enrichment-results"><i class="fa fa-check"></i>Filter enrichment results</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#downlaod-enrichment-file"><i class="fa fa-check"></i>Downlaod Enrichment File</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html"><i class="fa fa-check"></i>(6B) Ranked gene list using GSEA</a><ul>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#gsea_ts1"><i class="fa fa-check"></i>Loading the required data files into GSEA</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#specifying-parameters"><i class="fa fa-check"></i>Specifying parameters</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#running-gsea"><i class="fa fa-check"></i>Running GSEA</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#examining-gsea-results"><i class="fa fa-check"></i>Examining GSEA results</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="visualization-of-enrichment-results-with-enrichmentmap.html"><a href="visualization-of-enrichment-results-with-enrichmentmap.html"><i class="fa fa-check"></i>(7-9) Visualization of enrichment results with EnrichmentMap</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html"><i class="fa fa-check"></i>(9A) g:Profiler - Creation of enrichment maps for results generated in Step 6A</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#parameter-specification"><i class="fa fa-check"></i>Parameter specification</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#specification-of-additional-optional-files"><i class="fa fa-check"></i>Specification of additional optional files:</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#tuning-parameters"><i class="fa fa-check"></i>Tuning parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea-em.html"><a href="gsea-em.html"><i class="fa fa-check"></i>(9B) GSEA - Creation of enrichment maps for results generated in Step 6B</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#parameter-specification"><i class="fa fa-check"></i>Parameter specification</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#specification-of-additional-optional-files"><i class="fa fa-check"></i>Specification of additional optional files:</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#tuning-parameters"><i class="fa fa-check"></i>Tuning parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="navigation-and-interpretation-of-the-enrichment-map.html"><a href="navigation-and-interpretation-of-the-enrichment-map.html"><i class="fa fa-check"></i>(10-12) Navigation and interpretation of the enrichment map</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html"><i class="fa fa-check"></i>(13A) Exploring the Table Panel heat map</a><ul>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#expression-viewer"><i class="fa fa-check"></i>Expression Viewer</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#sorting-options"><i class="fa fa-check"></i>Sorting options</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#gene-options"><i class="fa fa-check"></i>Gene Options</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#expression-data-transformations"><i class="fa fa-check"></i>Expression data transformations</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#additional-functions"><i class="fa fa-check"></i>Additional Functions</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#export-results"><i class="fa fa-check"></i>Export Results</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html"><i class="fa fa-check"></i>Search GeneMANIA</a><ul>
+<li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html#show-connections-between-genes-in-gene-set-using-genemania"><i class="fa fa-check"></i>Show connections between genes in Gene set using GeneMANIA</a></li>
+<li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html#update-genemania-visual-style"><i class="fa fa-check"></i>Update GeneMANIA visual style</a></li>
+<li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html#explore-genemania-network"><i class="fa fa-check"></i>Explore GeneMANIA network</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="gsea-em" class="section level1">
+<h1>(9B) GSEA - Creation of enrichment maps for results generated in Step 6B</h1>
+<p><strong>Step 9B</strong> -</p>
+<div id="parameter-specification" class="section level2">
+<h2>Parameter specification</h2>
+<p align="center">
+<img src="images/em/gsea1.png" alt="workflow" width="100%"  />
+</p>
+<ol style="list-style-type: lower-roman">
+<li>In the <em>Create Enrichment Map</em> panel, click on folder icon and locate the GSEA results folder created in Step 6B .</li>
+</ol>
+<p align="center">
+<img src="images/em/gsea2.png" alt="workflow" width="75%"  />
+</p>
+<ol start="2" type="i">
+<li>
+Click on the GSEA folder to select it. Click on <em>Open</em>.
+</li>
+</ol>
+<div class="rmd-tip">
+<p>
+If you specify a directory that contains multiple GSEA results, rather than an individual GSEA results folder, EnrichmentMap will treat each GSEA results folder as a separate dataset. This enables easy multi-dataset analyses. If you want only one dataset but inadvertently selected the directory containing multiple GSEA results instead of selecting an individual folder, simply select the datasets you do not want to use and click on the trash can at the top of the EnrichmentMap input panel to remove them.
+</p>
+</div>
+<div class="rmd-tip">
+<p>
+If you specify a directory for Enrichment to auto populate your files for you this will result in the following parameters being filled:
+</p>
+<p align="center">
+<img src="images/em/gsea6.png" alt="workflow" width="75%"  />
+</p>
+<p>
+When GSEA results are generated from preranked gene list there is no expression file associated with the GSEA results and EM will automatically put the ranked list as the expression file. Make sure to update the it if you have an expression file associated with the analysis. The ranks will still be loaded as well through the RNK file parameter.
+</p>
+</div>
+<ol start="3" type="i">
+<li>
+In the right-hand pane, GSEA output files will be automatically populated into their specified fields. Alternatively, users can click on the ‘+’ symbol to specify each of the required files manually.
+</li>
+</ol>
+<p align="center">
+<img src="images/em/gsea3.png" alt="workflow" width="75%"  />
+</p>
+<ol start="4" type="i">
+<li>
+In the right-hand pane, modify the <em>Name</em> of the created dataset if desired. By default, EnrichmentMap will use the first part of the GSEA folder name before the last dot (.) to create the dataset name. For example, if the directory is called Mesen_vs_Immuno.GseaPreranked.12345, the name will be populated as Mesen_vs_Immuno.GseaPreranked.
+</li>
+<li>
+Verify that the <em>Analysis Type</em> is set to <em>GSEA</em>.
+</li>
+<li>
+<em>Enrichments Pos</em>. Verify that the file name is set to ‘[your_path_to_gsea_dir]/Mesen_vs_Immuno.GseaPreranked.12345/gsea_report_for_na_pos_12345.xls’, where ‘12345’ is a unique number generated by GSEA. Alternatively navigate to the ‘Supplementary_Table8_gsea_report_for_na_pos.xls’ file.
+</li>
+<li>
+<em>Enrichments Neg</em>. Verify that the file name is set to ‘[your_path_to_gsea_dir]/gsea_report_for_na_neg_12345.xls’, where ‘12345’ is a unique number generated by GSEA. Alternatively navigate to the file ‘Supplementary_Table9_gsea_report_for_na_neg.xls’.
+</li>
+</ol>
+<div class="rmd-troubleshooting">
+<p>
+** A random number is appended to the GSEA directory name**
+</p>
+<p>
+Each GSEA analysis generates a random number that is appended to the names of the files and directories. The number will be different for each new analysis
+</p>
+</div>
+<ol start="8" type="i">
+<li>
+<em>GMT</em>. Verify that the file name is set to ‘Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt’. Alternatively, navigate to the file ‘Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt’.
+</li>
+</ol>
+<div class="rmd-troubleshooting">
+<p>
+<strong>EnrichmentMap uses a GMT file that was not the original file input to GSEA</strong>
+</p>
+<ul>
+<li>
+The original GMT file was moved or no longer exists in the location in which GSEA saved it.
+</li>
+<li>
+If EnrichmentMap cannot find the original GMT file used in the GSEA analysis, it will use a filtered GMT file found in the GSEA ‘edb’ results directory. EnrichmentMap will not be able to find your original GMT file if you have moved it since running GSEA analysis. Although it is a GMT file, it has been filtered to contain only genes found in the expression file. If you use this filtered file, you will obtain different pathway connectivity depending on the expression data being used. You should always use the original GMT file used for the GSEA analysis and not the filtered one in the results directory
+</li>
+</ul>
+</div>
+<ol start="9" type="i">
+<li>
+<em>Ranks</em>. Verify that the file name is set to ‘ranked_gene_list_na_pos_versus_na_neg_12345.xls’, where ‘12345’ is a unique number generated by GSEA. Alternatively, navigate to the ‘Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk’ file.
+</li>
+</ol>
+<p align="center">
+<img src="images/em/gsea4.png" alt="required files" width="75%"  />
+</p>
+</div>
+<div id="specification-of-additional-optional-files" class="section level2">
+<h2>Specification of additional optional files:</h2>
+<ol start="10" type="i">
+<li>
+<em>Expressions</em>. (Optional) Upload an expression matrix for the genes analyzed in GSEA. For an example file, see ‘Supplementary_Table6_TCGA_OV_RNAseq_expression.txt’.
+</li>
+<li>
+<em>Classes</em>. (Optional) This is a GSEA CLS file defining the phenotype (i.e., biological conditions) of each sample in the expression file; for an example, see Supplementary Table 7. This file is required only for phenotype randomization in GSEA; however, providing it to EnrichmentMap will label the columns of the expression file in the EnrichmentMap heat map viewer by phenotype.
+</li>
+<li>
+<em>Phenotypes</em>. (Optional) In the text boxes replace, ‘na_pos’ with ‘Mesenchymal’ and ‘na_neg’ with ‘Immunoreactive’. ‘Mesenchymal’ will be associated with red nodes because it corresponds to the positive phenotype, whereas ‘Immunoreactive’ phenotypes will be labeled blue.
+</li>
+</ol>
+<p align="center">
+<img src="images/em/gsea5.png" alt="optional files" width="75%"  />
+</p>
+<div class="rmd-tip">
+<p>
+If you load the CLS file before specifying the phenotypes, EnrichmentMap will automatically guess the phenotypes from the class file. If your class file specifies more than two phenotypes, EnrichmentMap will choose the first two phenotypes defined in the file. To annotate the phenotypes in the EnrichmentMap heat map, the specified phenotype labels need to exactly match the GSEA CLS file.
+</p>
+</div>
+</div>
+<div id="tuning-parameters" class="section level2">
+<h2>Tuning parameters</h2>
+<ol start="13" type="i">
+<li>
+<em>Number of Nodes</em>.
+</li>
+</ol>
+<ul>
+<li>Set the FDR Q value cutoff to 0.01.</li>
+<li>(Optional) Select Filter genes by expressions to exclude any genes in the gene set definition file (i.e., the GMT file) that are not found in the supplied expression file.</li>
+<li>If Filter genes by expressions is not selected, any gene that is not found in the expression file will be retained and will be presented in the expression viewer with all of its associated expression values grayed out.</li>
+</ul>
+<p align="center">
+<img src="images/em/gsea7.png" alt="node filtering" width="75%"  />
+</p>
+<div class="rmd-troubleshooting">
+<p>
+<strong>User cannot provide a sufficiently precise Q value</strong>
+</p>
+<p>
+To set the threshold to a small number, select Scientific Notation and set a Q value cutoff such as 1E−04
+</p>
+</div>
+<ol start="14" type="i">
+<li>
+<em>Number of Edges</em>.
+</li>
+</ol>
+<ul>
+<li>Keep the connectivity slider in the center.</li>
+<li>To create networks with fewer edges,(a sparser network), move the slider to the left.</li>
+<li>Alternatively, to create networks with more edges (a denser network), move the slider to the right.</li>
+</ul>
+<p align="center">
+<img src="images/em/gsea8.png" alt="edge filtering" width="75%"  />
+</p>
+<div class="rmd-tip">
+<p>
+Moving the slider to the left (or right) will adjust the underlying similarity statistic threshold to make the resulting network sparser (or denser).
+</p>
+<ul>
+<li>
+The slider is set with predefined defaults, but users can fine-tune the similarity metric by selecting Show advanced options at the bottom of the Create Enrichment Map panel.
+</li>
+<li>
+Predefined values appear as tick marks on the slider and include:
+<ul>
+<li>
+Jaccard &gt; 0.35,
+</li>
+<li>
+Jaccard &gt; 0.25,
+</li>
+<li>
+combined &gt; 0.375,
+</li>
+<li>
+overlap &gt; 0.5, and
+</li>
+<li>
+overlap &gt; 0.25.
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<ol start="15" type="i">
+<li>
+Click the <em>Build</em> button at the bottom of the EnrichmentMap Input panel.
+</li>
+</ol>
+<p align="center">
+<img src="images/em/gsea9.png" alt="build" width="75%"  />
+</p>
+<ul>
+<li>A Building EnrichmentMap box appears and indicates the progress status. This box will disappear once the map has been created successfully.</li>
+</ul>
+<p align="center">
+<img src="images/em/gsea10.png" alt="running" width="75%"  />
+</p>
+<ul>
+<li>the resulting enrichment maps from the GSEA analysis.</li>
+</ul>
+<p align="center">
+<img src="images/em/gsea_network_nolabels.png" alt="running" width="100%"  />
+</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="gprofiler-em.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="navigation-and-interpretation-of-the-enrichment-map.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["EnrichmentMap_Protocol.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"new_session": false
+});
+});
+</script>
+
+</body>
+
+</html>

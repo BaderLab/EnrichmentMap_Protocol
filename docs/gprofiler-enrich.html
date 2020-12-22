@@ -136,6 +136,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#specification-of-additional-optional-files"><i class="fa fa-check"></i>Specification of additional optional files:</a></li>
 <li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#tuning-parameters"><i class="fa fa-check"></i>Tuning parameters</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="gsea-em.html"><a href="gsea-em.html"><i class="fa fa-check"></i>(9B) GSEA - Creation of enrichment maps for results generated in Step 6B</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#parameter-specification"><i class="fa fa-check"></i>Parameter specification</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#specification-of-additional-optional-files"><i class="fa fa-check"></i>Specification of additional optional files:</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#tuning-parameters"><i class="fa fa-check"></i>Tuning parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="navigation-and-interpretation-of-the-enrichment-map.html"><a href="navigation-and-interpretation-of-the-enrichment-map.html"><i class="fa fa-check"></i>(10-12) Navigation and interpretation of the enrichment map</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html"><i class="fa fa-check"></i>(13A) Exploring the Table Panel heat map</a><ul>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#expression-viewer"><i class="fa fa-check"></i>Expression Viewer</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#sorting-options"><i class="fa fa-check"></i>Sorting options</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#gene-options"><i class="fa fa-check"></i>Gene Options</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#expression-data-transformations"><i class="fa fa-check"></i>Expression data transformations</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#additional-functions"><i class="fa fa-check"></i>Additional Functions</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#export-results"><i class="fa fa-check"></i>Export Results</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html"><i class="fa fa-check"></i>Search GeneMANIA</a><ul>
+<li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html#show-connections-between-genes-in-gene-set-using-genemania"><i class="fa fa-check"></i>Show connections between genes in Gene set using GeneMANIA</a></li>
+<li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html#update-genemania-visual-style"><i class="fa fa-check"></i>Update GeneMANIA visual style</a></li>
+<li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html#explore-genemania-network"><i class="fa fa-check"></i>Explore GeneMANIA network</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -242,7 +261,7 @@ if g:Profiler does not return any results uncheck the <em>No electronic GO annot
 <li><p>Click on the 'combined name.gmt' link located at bottom of the dataset tab. It will download a file named <em>combined name.gmt</em> containing a pathway database GMT file with all the available sources.</p></li>
 <li><p>(Optional) concatenate the <a href="GO:BP" class="uri">GO:BP</a> and Reactome gmt files:</p></li>
 </ul>
-<p>If you want to create a smaller gmt file that doesn't contain all of the gprofiler datasources you can instead download name.gmt.zip that contains each datasource as its own GMT file. You will need to concatenate the sources you require into one GMT file to use for later.</p>
+<p>If you want to create a smaller gmt file that doesn't contain all of the gprofiler data sources you can instead download name.gmt.zip that contains each data source as its own GMT file. You will need to concatenate the sources you require into one GMT file to use for later.</p>
 <div id="option-1-merge-manually-if-you-are-not-familiar-with-unix-commands" class="section level4">
 <h4>Option 1: Merge manually, if you are not familiar with unix commands</h4>
 <ul>
@@ -283,7 +302,7 @@ Click <em>Run Query</em> to run the analysis. The <em>Run Query</em> button will
 If you miss the button changing from &quot;...&quot; to ✓ it might appear that nothing has happened. Scroll down to see results.
 </p>
 </div>
-<p>A graphical map of the resulting pathways will be shown, with the -log10(pvalue) along the y axis and the associated pathways of the input list shown along the x axis divided by datasource. By default, results with Q values &lt;0.05 are reported but all pathways are shown in the graphical map with a dotted line indicating which pathways are significant and pass correction.</p>
+<p>A graphical map of the resulting pathways will be shown, with the -log10(pvalue) along the y axis and the associated pathways of the input list shown along the x axis divided by data source. By default, results with Q values &lt;0.05 are reported but all pathways are shown in the graphical map with a dotted line indicating which pathways are significant and pass correction.</p>
 <img src="images/gprofiler/gp6.png" />
 <div class="rmd-tip">
 <p>
@@ -320,7 +339,7 @@ To see the specific numbers used to calculate the statistics for each gene set c
 </div>
 <div class="rmd-tip">
 <p>
-If <em>ordered query</em> is selected then the number of query genes associated with each pathway will fluctuate as g:Profiler sequenctially increases the number of genes tested and finds the set of genes that generate the most significant result.
+If <em>ordered query</em> is selected then the number of query genes associated with each pathway will fluctuate as g:Profiler sequentially increases the number of genes tested and finds the set of genes that generate the most significant result.
 </p>
 </div>
 </div>

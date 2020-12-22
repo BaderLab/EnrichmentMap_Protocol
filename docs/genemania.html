@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Search GeneMANIA | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap</title>
+  <meta name="description" content="updated version of nature protocol" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Search GeneMANIA | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="updated version of nature protocol" />
+  <meta name="github-repo" content="baderlab/EnrichmentMap_Protocol" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Search GeneMANIA | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap" />
+  
+  <meta name="twitter:description" content="updated version of nature protocol" />
+  
+
+<meta name="author" content="Ruth Isserlin" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="a-exploring-the-table-panel-heat-map.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i>Attributions:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html"><i class="fa fa-check"></i>Materials</a><ul>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#equipment"><i class="fa fa-check"></i>Equipment</a><ul>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#hardware"><i class="fa fa-check"></i>Hardware</a></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#software"><i class="fa fa-check"></i>Software</a></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#input-data"><i class="fa fa-check"></i>Input data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="software-installation.html"><a href="software-installation.html"><i class="fa fa-check"></i>(1-5) Software installation</a></li>
+<li class="chapter" data-level="" data-path="pathway-enrichment-analysis.html"><a href="pathway-enrichment-analysis.html"><i class="fa fa-check"></i>Pathway enrichment analysis</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html"><i class="fa fa-check"></i>(6A) Gene list using g:Profiler</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#specify-parameters"><i class="fa fa-check"></i>Specify parameters</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#downlaod-gmt"><i class="fa fa-check"></i>Downlaod GMT</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#run-query"><i class="fa fa-check"></i>Run Query</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#filter-enrichment-results"><i class="fa fa-check"></i>Filter enrichment results</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#downlaod-enrichment-file"><i class="fa fa-check"></i>Downlaod Enrichment File</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html"><i class="fa fa-check"></i>(6B) Ranked gene list using GSEA</a><ul>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#gsea_ts1"><i class="fa fa-check"></i>Loading the required data files into GSEA</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#specifying-parameters"><i class="fa fa-check"></i>Specifying parameters</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#running-gsea"><i class="fa fa-check"></i>Running GSEA</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#examining-gsea-results"><i class="fa fa-check"></i>Examining GSEA results</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="visualization-of-enrichment-results-with-enrichmentmap.html"><a href="visualization-of-enrichment-results-with-enrichmentmap.html"><i class="fa fa-check"></i>(7-9) Visualization of enrichment results with EnrichmentMap</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html"><i class="fa fa-check"></i>(9A) g:Profiler - Creation of enrichment maps for results generated in Step 6A</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#parameter-specification"><i class="fa fa-check"></i>Parameter specification</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#specification-of-additional-optional-files"><i class="fa fa-check"></i>Specification of additional optional files:</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#tuning-parameters"><i class="fa fa-check"></i>Tuning parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea-em.html"><a href="gsea-em.html"><i class="fa fa-check"></i>(9B) GSEA - Creation of enrichment maps for results generated in Step 6B</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#parameter-specification"><i class="fa fa-check"></i>Parameter specification</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#specification-of-additional-optional-files"><i class="fa fa-check"></i>Specification of additional optional files:</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#tuning-parameters"><i class="fa fa-check"></i>Tuning parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="navigation-and-interpretation-of-the-enrichment-map.html"><a href="navigation-and-interpretation-of-the-enrichment-map.html"><i class="fa fa-check"></i>(10-12) Navigation and interpretation of the enrichment map</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html"><i class="fa fa-check"></i>(13A) Exploring the Table Panel heat map</a><ul>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#expression-viewer"><i class="fa fa-check"></i>Expression Viewer</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#sorting-options"><i class="fa fa-check"></i>Sorting options</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#gene-options"><i class="fa fa-check"></i>Gene Options</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#expression-data-transformations"><i class="fa fa-check"></i>Expression data transformations</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#additional-functions"><i class="fa fa-check"></i>Additional Functions</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#export-results"><i class="fa fa-check"></i>Export Results</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html"><i class="fa fa-check"></i>Search GeneMANIA</a><ul>
+<li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html#show-connections-between-genes-in-gene-set-using-genemania"><i class="fa fa-check"></i>Show connections between genes in Gene set using GeneMANIA</a></li>
+<li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html#update-genemania-visual-style"><i class="fa fa-check"></i>Update GeneMANIA visual style</a></li>
+<li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html#explore-genemania-network"><i class="fa fa-check"></i>Explore GeneMANIA network</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="genemania" class="section level1">
+<h1>Search GeneMANIA</h1>
+<p>This function allows users to search GeneMANIA<span class="citation">(Warde-Farley et al. <a href="#ref-genemania">2010</a>)</span> with a set of genes. The genes are pulled from the selected nodes in the Enrichment map but can be adjusted by the user before initiating the query.</p>
+<div id="show-connections-between-genes-in-gene-set-using-genemania" class="section level2">
+<h2>Show connections between genes in Gene set using GeneMANIA</h2>
+<ul>
+<li>The <em>show in GeneMANIA</em> function can be accessed from the HeatMap settings menu as well as the <em>Right click</em> context menu in the network.<br />
+
+<p align="center">
+<img src="images/heatmap/genemania_context_menu.png" alt="genemania context menu" width="75%"  />
+</p></li>
+<li>Right click on selected node/nodes.</li>
+<li>Select <em>Apps</em> --&gt; <em>EnrichmentMap - Show in GeneMANIA</em></li>
+<li>A <em>GeneMANIA Query</em> panel will show up for the user to adjust query parameters.
+<p align="center">
+<img src="images/heatmap/genemania_query.png" alt="genemania query" width="75%"  />
+</p></li>
+<li>Genes - The genes are pulled from all the selected nodes. You can choose to change the selection to a subset of genes in the set by unclicking specific genes.<br />
+</li>
+<li>If available, clicking on &quot;Select leading edge&quot; will limit the gene selection to just genes in the leading edge for the selected gene set. Option will only be available for GSEA results where only a single gene set is selected.</li>
+<li><em>Organism</em> - select organism genes are associated with.</li>
+<li><em>Max Resultant genes</em> - the GeneMANIA algorithm looks for similar genes to the query set. To see the connections of just the query genes set the <em>max resultant genes</em> to zero (default). By increasing this threshold GeneMANIA will add similar genes to the resulting network.</li>
+<li><em>Network Weighting</em> - GeneMANIA is a network weighting algorithm where by it weighs it available networks such that it maximizes the connections between the query set of genes.</li>
+</ul>
+<p align="center">
+<img src="images/heatmap/genemania_default.png" alt="genemania default" width="75%"  />
+</p>
+<p>Resulting GeneMANIA network using the genes from the selected node &quot;Interferon alpha beta signaling&quot;.</p>
+</div>
+<div id="update-genemania-visual-style" class="section level2">
+<h2>Update GeneMANIA visual style</h2>
+<ul>
+<li>You can change the visual properties of GeneMANIA network through the panel created by Enrichment map.
+<p align="center">
+<img src="images/heatmap/genemania_visualstyle_default.png" alt="genemania visualstyle default" width="75%"  />
+</p></li>
+<li>By default, the GeneMANIA network has the default GeneMANIA style.</li>
+<li>Adjust style with Enrichment Map expression data using the panel. The panel contains the similar features that are available in the Enrichment Map heatmap panel.
+<ul>
+<li>Chart Data - choose to colour by dataset or by expression data.</li>
+<li>Expressions - if chart data is set to 'Color by Expression Data' choose from Values, Row Norm or log values.</li>
+<li>Compress - if chart data is set to 'Color by Expression Data' choose from Class: Median, Class: Min, Class: Max, Dataset: Median, Dataset:Min, Dataset: Max, or None</li>
+<li>Chart type - if chart data is set to 'Color by Expression Data' choose from Radial HeatMap or Heatstrips.</li>
+<li>Data Set - if there are multiple datasets choose which dataset to colour by.
+<p align="center">
+<img src="images/heatmap/genemania_visualstyle.png" alt="genemania visualstyle default" width="75%"  />
+</p></li>
+</ul></li>
+</ul>
+<p align="center">
+<img src="images/heatmap/genemania_updated.png" alt="genemania default" width="75%"  />
+</p>
+<p>Resulting GeneMANIA network using the genes from the selected node &quot;Interferon alpha beta signaling&quot; after colouring the GeneMANIA network with expression data from Enrichment Map.</p>
+<div class="rmd-tip">
+<p>
+If you want to return to your Enrichment map * click on the drop down in the top of the Control panel and * By default, the GeneMANIA network will be named by the species you are searching in. For example, if you are searching in Homo Sapiens the network will be called H. Sapiens (1). For each new search in the same species the number in parenthesis will be increased. * jump back to the original enrichment map by selecting it from the drop down list.(For our example, click on mesen_vs_immuno.GSEAPreRanked to go to the original network.)
+</p>
+<p align="center">
+<img src="images/heatmap/back2EM.png" alt="back2EM" width="75%"  />
+</p>
+</div>
+</div>
+<div id="explore-genemania-network" class="section level2">
+<h2>Explore GeneMANIA network</h2>
+<p>GeneMANIA<span class="citation">(Warde-Farley et al. <a href="#ref-genemania">2010</a>)</span> returns the inter-connected network of query genes connected using various types of networks including: * Co-expression * Pathways * Shared protein domains * Physical interactions * Predicted * Co-localizations You can see the weights associated with your query genes in the Cytoscape results panels located on the right hand side.</p>
+<p align="center">
+<img src="images/heatmap/genemania_results.png" alt="genemania results" width="75%"  />
+</p>
+<div class="rmd-tip">
+<p>
+If the panel is not there, click on the GeneMANIA icon on the left hand bar to open it.
+</p>
+<p align="center">
+<img src="images/heatmap/genemania_tab.png" alt="genemania tab" width="75%"  />
+</p>
+</div>
+<p>Each network type contains hundreds of different networks and each network is associated with its own weight that contributes to the weight of the group. * You can expand each network type to see the individual networks. * Clicking on an individual network or network type will highlight all the nodes and edges that are associated with it.</p>
+<p align="center">
+<img src="images/heatmap/genemania_highlight.png" alt="genemania highlight" width="75%"  />
+</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-genemania">
+<p>Warde-Farley, David, Sylva L Donaldson, Ovi Comes, Khalid Zuberi, Rashad Badrawi, Pauline Chao, Max Franz, et al. 2010. “The Genemania Prediction Server: Biological Network Integration for Gene Prioritization and Predicting Gene Function.” <em>Nucleic Acids Research</em> 38 (suppl_2). Oxford University Press: W214–W220.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="a-exploring-the-table-panel-heat-map.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["EnrichmentMap_Protocol.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"new_session": false
+});
+});
+</script>
+
+</body>
+
+</html>

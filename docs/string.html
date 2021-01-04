@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Search String | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap</title>
+  <meta name="description" content="updated version of nature protocol" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Search String | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="updated version of nature protocol" />
+  <meta name="github-repo" content="baderlab/EnrichmentMap_Protocol" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Search String | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap" />
+  
+  <meta name="twitter:description" content="updated version of nature protocol" />
+  
+
+<meta name="author" content="Ruth Isserlin" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="pathwaycommons.html"/>
+<link rel="next" href="b-organization-and-clarification-of-the-network.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i>Attributions:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html"><i class="fa fa-check"></i>Materials</a><ul>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#equipment"><i class="fa fa-check"></i>Equipment</a><ul>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#hardware"><i class="fa fa-check"></i>Hardware</a></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#software"><i class="fa fa-check"></i>Software</a></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#input-data"><i class="fa fa-check"></i>Input data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="software-installation.html"><a href="software-installation.html"><i class="fa fa-check"></i>(1-5) Software installation</a></li>
+<li class="chapter" data-level="" data-path="pathway-enrichment-analysis.html"><a href="pathway-enrichment-analysis.html"><i class="fa fa-check"></i>Pathway enrichment analysis</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html"><i class="fa fa-check"></i>(6A) Gene list using g:Profiler</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#specify-parameters"><i class="fa fa-check"></i>Specify parameters</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#downlaod-gmt"><i class="fa fa-check"></i>Downlaod GMT</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#run-query"><i class="fa fa-check"></i>Run Query</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#filter-enrichment-results"><i class="fa fa-check"></i>Filter enrichment results</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#downlaod-enrichment-file"><i class="fa fa-check"></i>Downlaod Enrichment File</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html"><i class="fa fa-check"></i>(6B) Ranked gene list using GSEA</a><ul>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#gsea_ts1"><i class="fa fa-check"></i>Loading the required data files into GSEA</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#specifying-parameters"><i class="fa fa-check"></i>Specifying parameters</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#running-gsea"><i class="fa fa-check"></i>Running GSEA</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#examining-gsea-results"><i class="fa fa-check"></i>Examining GSEA results</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="visualization-of-enrichment-results-with-enrichmentmap.html"><a href="visualization-of-enrichment-results-with-enrichmentmap.html"><i class="fa fa-check"></i>(7-9) Visualization of enrichment results with EnrichmentMap</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html"><i class="fa fa-check"></i>(9A) g:Profiler - Creation of enrichment maps for results generated in Step 6A</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#parameter-specification"><i class="fa fa-check"></i>Parameter specification</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#specification-of-additional-optional-files"><i class="fa fa-check"></i>Specification of additional optional files:</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#tuning-parameters"><i class="fa fa-check"></i>Tuning parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea-em.html"><a href="gsea-em.html"><i class="fa fa-check"></i>(9B) GSEA - Creation of enrichment maps for results generated in Step 6B</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#parameter-specification"><i class="fa fa-check"></i>Parameter specification</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#specification-of-additional-optional-files"><i class="fa fa-check"></i>Specification of additional optional files:</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#tuning-parameters"><i class="fa fa-check"></i>Tuning parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="navigation-and-interpretation-of-the-enrichment-map.html"><a href="navigation-and-interpretation-of-the-enrichment-map.html"><i class="fa fa-check"></i>(10-12) Navigation and interpretation of the enrichment map</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html"><i class="fa fa-check"></i>(13A) Exploring the Table Panel heat map</a><ul>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#expression-viewer"><i class="fa fa-check"></i>Expression Viewer</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#sorting-options"><i class="fa fa-check"></i>Sorting options</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#gene-options"><i class="fa fa-check"></i>Gene Options</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#expression-data-transformations"><i class="fa fa-check"></i>Expression data transformations</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#additional-functions"><i class="fa fa-check"></i>Additional Functions</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#export-results"><i class="fa fa-check"></i>Export Results</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html"><i class="fa fa-check"></i>Search GeneMANIA</a><ul>
+<li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html#show-connections-between-genes-in-gene-set-using-genemania"><i class="fa fa-check"></i>Show connections between genes in Gene set using GeneMANIA</a></li>
+<li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html#update-genemania-visual-style"><i class="fa fa-check"></i>Update GeneMANIA visual style</a></li>
+<li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html#explore-genemania-network"><i class="fa fa-check"></i>Explore GeneMANIA network</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="pathwaycommons.html"><a href="pathwaycommons.html"><i class="fa fa-check"></i>Search Pathway commons</a></li>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html"><i class="fa fa-check"></i>Search String</a><ul>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#show-connections-between-genes-in-gene-set-using-string"><i class="fa fa-check"></i>Show connections between genes in Gene set using STRING</a></li>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#update-string-visual-style"><i class="fa fa-check"></i>Update STRING visual style</a></li>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#explore-string-network"><i class="fa fa-check"></i>Explore STRING network</a><ul>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#string-enrichments"><i class="fa fa-check"></i>STRING Enrichments</a></li>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#string-filtering"><i class="fa fa-check"></i>STRING filtering</a></li>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#string-selected"><i class="fa fa-check"></i>STRING selected</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="b-organization-and-clarification-of-the-network.html"><a href="b-organization-and-clarification-of-the-network.html"><i class="fa fa-check"></i>(13B) Organization and clarification of the network</a><ul>
+<li class="chapter" data-level="" data-path="b-organization-and-clarification-of-the-network.html"><a href="b-organization-and-clarification-of-the-network.html#separate-two-different-phenotypes"><i class="fa fa-check"></i>Separate two different phenotypes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="c-defining-major-biological-themes.html"><a href="c-defining-major-biological-themes.html"><i class="fa fa-check"></i>(13C) Defining major biological themes</a><ul>
+<li class="chapter" data-level="" data-path="c-defining-major-biological-themes.html"><a href="c-defining-major-biological-themes.html#annotate-the-network"><i class="fa fa-check"></i>Annotate the Network</a></li>
+<li class="chapter" data-level="" data-path="c-defining-major-biological-themes.html"><a href="c-defining-major-biological-themes.html#manually-arrange-network"><i class="fa fa-check"></i>Manually arrange network</a></li>
+<li class="chapter" data-level="" data-path="c-defining-major-biological-themes.html"><a href="c-defining-major-biological-themes.html#resulting-network"><i class="fa fa-check"></i>Resulting Network</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="string" class="section level1">
+<h1>Search String</h1>
+<p>This function allows users to search STRING<span class="citation">(Szklarczyk et al. <a href="#ref-string">2019</a>)</span> with a set of genes. The genes are pulled from the selected nodes in the Enrichment map but can be adjusted by the user before initiating the query.</p>
+<div id="show-connections-between-genes-in-gene-set-using-string" class="section level2">
+<h2>Show connections between genes in Gene set using STRING</h2>
+<ul>
+<li>The <em>show in STRING</em> function can be accessed from the HeatMap settings menu as well as the <em>Right click</em> context menu in the network.<br />
+
+<p align="center">
+<img src="images/heatmap/string_context_menu.png" alt="string context menu" width="75%"  />
+</p></li>
+<li>Right click on selected node/nodes.</li>
+<li>Select <em>Apps</em> --&gt; <em>EnrichmentMap - Show in STRING</em></li>
+<li>A <em>STRING Protein Query</em> panel will show up for the user to adjust query parameters.</li>
+</ul>
+<p align="center">
+<img src="images/heatmap/string_query.png" alt="string query" width="75%"  />
+</p>
+<ul>
+<li><em>Genes</em> - The genes are pulled from all the selected nodes. You can choose to change the selection to a subset of genes in the set by unclicking specific genes.<br />
+</li>
+<li>If available, clicking on &quot;Select leading edge&quot; will limit the gene selection to just genes in the leading edge for the selected gene set. Option will only be available for GSEA results where only a single gene set is selected.</li>
+<li><em>Organism</em> - select organism genes are associated with.</li>
+<li><em>Confidence cutoff</em> - the STRING algorithm looks for interactions between the query set. Different interactions have different confidence scores depending on many different factors (experiment through which it was found, number of publications associated with it ....). By default, the confidence cutoff is set to 0.40. To decrease the number of interactions returned, and include only high confidence interactions you can increase this threshold. The inverse, decreasing the cutoff, will return more interactions.</li>
+<li><em>Max Additional Interactors</em> - If you want to add interactors in addition to your query you can specify the number of interactors you want STRING to return.</li>
+</ul>
+<p align="center">
+<img src="images/heatmap/string_default.png" alt="string default" width="75%"  />
+</p>
+<p>Resulting STRING network using the genes from the selected node &quot;Interferon alpha beta signaling&quot;.</p>
+</div>
+<div id="update-string-visual-style" class="section level2">
+<h2>Update STRING visual style</h2>
+<ul>
+<li>You can change the visual properties of STRING network through the panel created by Enrichment map.
+<p align="center">
+<img src="images/heatmap/string_visualstyle_default.png" alt="string visualstyle default" width="75%"  />
+</p></li>
+<li>By default, the STRING network has the default STRING style. There is a lot of information embedded in this view. See <a href="https://jensenlab.org/training/stringapp/">here</a> for a tutorial on using STRING.</li>
+<li>Adjust style with Enrichment Map expression data using the panel. The panel contains the similar features that are available in the Enrichment Map heatmap panel.
+<ul>
+<li>Chart Data - choose to colour by dataset or by expression data.</li>
+<li>Expressions - if chart data is set to 'Color by Expression Data' choose from Values, Row Norm or log values.</li>
+<li>Compress - if chart data is set to 'Color by Expression Data' choose from Class: Median, Class: Min, Class: Max, Dataset: Median, Dataset:Min, Dataset: Max, or None</li>
+<li>Chart type - if chart data is set to 'Color by Expression Data' choose from Radial HeatMap or Heatstrips.</li>
+<li>Data Set - if there are multiple datasets choose which dataset to colour by.
+<p align="center">
+<img src="images/heatmap/string_visualstyle.png" alt="string visualstyle default" width="75%"  />
+</p></li>
+</ul></li>
+</ul>
+<p align="center">
+<img src="images/heatmap/string_updated.png" alt="string default" width="75%"  />
+</p>
+<p>Resulting STRING network using the genes from the selected node &quot;Interferon alpha beta signaling&quot; after colouring the STRING network with expression data from Enrichment Map.</p>
+<div class="rmd-tip">
+<p>
+If you want to return to your Enrichment map
+</p>
+<ul>
+<li>
+click on the drop down in the top of the Control panel and
+</li>
+<li>
+By default, the STRING network will be named String Network. For each new search a number will be added to the end of the name. You can manually change the name of the network by right clicking on the network name and selecting <em>Rename</em> in the Network Panel.
+</li>
+<li>
+jump back to the original enrichment map by selecting it from the drop down list.(For our example, click on mesen_vs_immuno.GSEAPreRanked to go to the original network.)
+</li>
+</ul>
+<p align="center">
+<img src="images/heatmap/back2EM_string.png" alt="back2EM" width="75%"  />
+</p>
+</div>
+</div>
+<div id="explore-string-network" class="section level2">
+<h2>Explore STRING network</h2>
+<p>STRING<span class="citation">(Szklarczyk et al. <a href="#ref-string">2019</a>)</span> returns the inter-connected network of query genes connected based on the interactions and associated scores pulled from the <a href="https://string-db.org/">STRING database</a>. The returned STRING network has the typical STRING &quot;glass&quot; look style which can be easily adjusted using the option in the STRING panel (on the right hand side).</p>
+<p align="center">
+<img src="images/heatmap/string_features_vs.png" alt="string features visual" width="75%"  />
+</p>
+<p>Disabling all visual properties will generate a simple network</p>
+<p align="center">
+<img src="images/heatmap/string_disabled_vs.png" alt="back2EM" width="75%"  />
+</p>
+<div id="string-enrichments" class="section level3">
+<h3>STRING Enrichments</h3>
+<p>Eventhough the network was created from an enrichment analysis, STRING allows you to run an enrichment analysis on all or some of the genes in the network. There are two types of enrichments available:</p>
+<p align="center">
+<img src="images/heatmap/string_features_enrichment.png" alt="functional enrichment" width="75%"  />
+</p>
+<ul>
+<li><em>Functional Enrichments</em> - genes in the STRING network that are enriched in annotations from GO Biological process, GO molecular function, GO cellular component, Reactome pathway, KEGG pathway, Interpro domains, SMART domains, and Uniprot Key words
+<ul>
+<li>Click on Functional Enrichment</li>
+<li><p align="center">
+<img src="images/heatmap/string_functional_enrichment.png" alt="functional enrichment" width="75%"  />
+</p></li>
+<li>If you want to restrict to just the selected node then click on &quot;retrieve for selected nodes only&quot;</li>
+<li>You can also choose to use different background sets for the functional enrichment test, the entire genome, or limit it to the genes in the network.</li>
+<li>Click on OK.</li>
+<li>Enrichment results will appear in the Table browser.</li>
+<li><p align="center">
+<img src="images/heatmap/string_enrichment_results.png" alt="functional enrichment" width="100%"  />
+</p></li>
+</ul></li>
+<li><em>Enriched Publications</em> - genes in the STRING network that are enriched for a given publication.
+<ul>
+<li>Click on Enriched Publications</li>
+<li><p align="center">
+<img src="images/heatmap/string_functional_enrichment.png" alt="functional enrichment" width="75%"  />
+</p></li>
+<li>If you want to restrict to just the selected node then click on &quot;retrieve for selected nodes only&quot;</li>
+<li>You can also choose to use different background sets for the functional enrichment test, the entire genome, or limit it to the genes in the network.</li>
+<li>Click on OK.</li>
+<li>Enrichment results will appear in the Table browser.</li>
+<li><p align="center">
+<img src="images/heatmap/string_enriched_pubs.png" alt="pubs enrichment" width="100%"  />
+</p></li>
+</ul></li>
+</ul>
+</div>
+<div id="string-filtering" class="section level3">
+<h3>STRING filtering</h3>
+<p>STRING offers interesting annotations and filter options. You can filter your results by:</p>
+<p align="center">
+<img src="images/heatmap/string_features_filtering.png" alt="functional enrichment" width="75%"  />
+</p>
+<ul>
+<li>Tissue types</li>
+<li>Cellular location</li>
+</ul>
+<p>Moving the sliders for each defined tissue type or cellular location will limit the genes in the network to just the genes that are more strongly associated with the given term. For example, if you want to highlight genes found in the nucleus move the slider next to the nucleus term. Scores associated with each of these can also be found in the Node Table.</p>
+</div>
+<div id="string-selected" class="section level3">
+<h3>STRING selected</h3>
+<p>Selecting an individual gene or a group of genes will populate the <strong>Selected</strong> pane with additional information about all the genes selected</p>
+<p align="center">
+<img src="images/heatmap/string_features_selected.png" alt="functional enrichment" width="75%"  />
+</p>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-string">
+<p>Szklarczyk, Damian, Annika L Gable, David Lyon, Alexander Junge, Stefan Wyder, Jaime Huerta-Cepas, Milan Simonovic, et al. 2019. “STRING V11: Protein–protein Association Networks with Increased Coverage, Supporting Functional Discovery in Genome-Wide Experimental Datasets.” <em>Nucleic Acids Research</em> 47 (D1). Oxford University Press: D607–D613.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="pathwaycommons.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="b-organization-and-clarification-of-the-network.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["EnrichmentMap_Protocol.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"new_session": false
+});
+});
+</script>
+
+</body>
+
+</html>

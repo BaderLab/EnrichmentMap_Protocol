@@ -1,7 +1,8 @@
 # (13A) Exploring the Table Panel heat map
 
 ## Expression Viewer
-  i.When a gene expression matrix is provided as input to EnrichmentMap, we can study the expression pattern of the genes included in enriched pathways. 
+  i.When a gene expression matrix is provided as input to EnrichmentMap, we can study the expression pattern of the genes included in enriched pathways.
+  
   * Click on either an individual node -  
 <p align="center"> <img src="./images/heatmap/indiv_node.png" alt="single node" width="75%"  /></p>
   * or a group of nodes - 
@@ -90,7 +91,7 @@ In the case of multiple conditions or conditions with variable expression profil
 <ol start=6 type="i">
 <li>Check *Values* to show the expression numerical values in addition to the heat map color scale.</li>
 </ol>  
-  * <p align="center"> <img src="./images/heatmap/values.png" alt="values" width="75%"  /></p>
+  * <p align="center"> <img src="./images/heatmap/values.png" alt="values" width="50%"  /></p>
 
 ## Additional Functions  
 <ol start=7 type="i">
@@ -100,8 +101,8 @@ In the case of multiple conditions or conditions with variable expression profil
   * <p align="center"> <img src="./images/heatmap/settings.png" alt="settings" width="75%"  /></p>
   * This includes functionality to:
     * [Show in GeneMANIA...](#genemania) - Use the genes in the heatmap and search GeneMANIA[@genemania].
-    * Show in STRING ... - Use the genes in the heatmap and search STRING.
-    * Show in Pathway Commons... - Use the genes in the heatmap and search Pathway Commons.
+    * [Show in STRING ...](#string) - Use the genes in the heatmap and search STRING.
+    * [Show in Pathway Commons...](#pathwaycommons) - Use the genes in the heatmap and search Pathway Commons.
     * Add Rankings - add new ranking files, 
     * Export as TXT... - export the heat map data as a tab-delimited text file
     * Export as PDF... - export the heat map data as a PDF image, 
@@ -111,13 +112,21 @@ In the case of multiple conditions or conditions with variable expression profil
     * Display only selected Data Sets - when using multiple datasets there can be many expression files.  By default the heat map will only show the expression files of the selected dataset but if you would like to see them all then you can change this setting. 
     * Auto Select leading edge
 
-<p align="center"> <img src="./images/heatmap/heatmap.png" alt="heatmap" width="75%"  /></p>
+<br>
+
 Genes are sorted using the GSEA rank file, highlighting the leading edge in yellow. All genes contained in selected nodes are shown, expression values are row-normalized, no compression is applied and individual expression numerical values are not shown. Column headings are colored according to sample phenotype. Red color refers to the first phenotype (mesenchymal), and blue to the second phenotype (immunoreactive).
+
+<p align="center"> <img src="./images/heatmap/heatmap.png" alt="heatmap" width="75%"  /></p>
 
 ```{block, type="rmd-troubleshooting"}
 **Heat map column names are not colored by dataset**
 
-If the heat map columns are not colored for a GSEA analysis, make sure the phenotype names specified in the EnrichmentMap input panel match the class names specified in the class file (MesenchymalvsImmunoreactive_RNA-Seq_classes.cls). 
+If the heat map columns are not colored for a GSEA analysis, make sure the phenotype names specified in the EnrichmentMap input panel here:
+
+<p align="center"> <img src="./images/heatmap/match_classes.png" alt="match" width="75%"  /></p>
+
+match the class names specified in the class file [Supplementary_Table7_TCGA_OV_RNAseq_classes.cls](./data/Supplementary_Table7_TCGA_OV_RNAseq_classes.cls).
+
 ```
 
 ## Export Results

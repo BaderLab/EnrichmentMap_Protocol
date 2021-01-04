@@ -36,6 +36,7 @@ Resulting GeneMANIA network using the genes from the selected node "Interferon a
     
 ```{block, type="rmd-tip"}
 If you want to return to your Enrichment map
+
   * click on the drop down in the top of the Control panel and 
   * By default, the GeneMANIA network will be named by the species you are searching in.  For example, if you are searching in Homo Sapiens the network will be called H. Sapiens (1).  For each new search in the same species the number in parenthesis will be increased. 
   * jump back to the original enrichment map by selecting it from the drop down list.(For our example, click on mesen_vs_immuno.GSEAPreRanked to go to the original network.) 
@@ -46,12 +47,14 @@ If you want to return to your Enrichment map
 ## Explore GeneMANIA network
 
 GeneMANIA[@genemania] returns the inter-connected network of query genes connected using various types of networks including:
+
   * Co-expression
   * Pathways
   * Shared protein domains
   * Physical interactions
   * Predicted
   * Co-localizations
+  
 You can see the weights associated with your query genes in the Cytoscape results panels located on the right hand side. 
 
 <p align="center"> <img src="./images/heatmap/genemania_results.png" alt="genemania results" width="75%"  /></p> 
@@ -64,6 +67,7 @@ If the panel is not there, click on the GeneMANIA icon on the left hand bar to o
 ```
 
 Each network type contains hundreds of different networks and each network is associated with its own weight that contributes to the weight of the group.
+
   * You can expand each network type to see the individual networks. 
   * Clicking on an individual network or network type will highlight all the nodes and edges that are associated with it. 
   

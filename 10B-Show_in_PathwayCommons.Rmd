@@ -1,0 +1,9 @@
+# Search Pathway commons {#pathwaycommons}
+
+  This function allows users to search Pathway Commons[@pathwaycommons] with a set of genes.  The genes are pulled from the selected nodes in the Enrichment map but can be adjusted by the user before initiating the query.
+  
+```{block, type="rmd-troubleshooting"}
+
+This feature is currently not working
+
+```

@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="a-exploring-the-table-panel-heat-map.html"/>
-<link rel="next" href="references.html"/>
+<link rel="next" href="pathwaycommons.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -155,6 +155,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html#update-genemania-visual-style"><i class="fa fa-check"></i>Update GeneMANIA visual style</a></li>
 <li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html#explore-genemania-network"><i class="fa fa-check"></i>Explore GeneMANIA network</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="pathwaycommons.html"><a href="pathwaycommons.html"><i class="fa fa-check"></i>Search Pathway commons</a></li>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html"><i class="fa fa-check"></i>Search String</a><ul>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#show-connections-between-genes-in-gene-set-using-string"><i class="fa fa-check"></i>Show connections between genes in Gene set using STRING</a></li>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#update-string-visual-style"><i class="fa fa-check"></i>Update STRING visual style</a></li>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#explore-string-network"><i class="fa fa-check"></i>Explore STRING network</a><ul>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#string-enrichments"><i class="fa fa-check"></i>STRING Enrichments</a></li>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#string-filtering"><i class="fa fa-check"></i>STRING filtering</a></li>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#string-selected"><i class="fa fa-check"></i>STRING selected</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="b-organization-and-clarification-of-the-network.html"><a href="b-organization-and-clarification-of-the-network.html"><i class="fa fa-check"></i>(13B) Organization and clarification of the network</a><ul>
+<li class="chapter" data-level="" data-path="b-organization-and-clarification-of-the-network.html"><a href="b-organization-and-clarification-of-the-network.html#separate-two-different-phenotypes"><i class="fa fa-check"></i>Separate two different phenotypes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="c-defining-major-biological-themes.html"><a href="c-defining-major-biological-themes.html"><i class="fa fa-check"></i>(13C) Defining major biological themes</a><ul>
+<li class="chapter" data-level="" data-path="c-defining-major-biological-themes.html"><a href="c-defining-major-biological-themes.html#annotate-the-network"><i class="fa fa-check"></i>Annotate the Network</a></li>
+<li class="chapter" data-level="" data-path="c-defining-major-biological-themes.html"><a href="c-defining-major-biological-themes.html#manually-arrange-network"><i class="fa fa-check"></i>Manually arrange network</a></li>
+<li class="chapter" data-level="" data-path="c-defining-major-biological-themes.html"><a href="c-defining-major-biological-themes.html#resulting-network"><i class="fa fa-check"></i>Resulting Network</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -231,8 +249,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Resulting GeneMANIA network using the genes from the selected node &quot;Interferon alpha beta signaling&quot; after colouring the GeneMANIA network with expression data from Enrichment Map.</p>
 <div class="rmd-tip">
 <p>
-If you want to return to your Enrichment map * click on the drop down in the top of the Control panel and * By default, the GeneMANIA network will be named by the species you are searching in. For example, if you are searching in Homo Sapiens the network will be called H. Sapiens (1). For each new search in the same species the number in parenthesis will be increased. * jump back to the original enrichment map by selecting it from the drop down list.(For our example, click on mesen_vs_immuno.GSEAPreRanked to go to the original network.)
+If you want to return to your Enrichment map
 </p>
+<ul>
+<li>
+click on the drop down in the top of the Control panel and
+</li>
+<li>
+By default, the GeneMANIA network will be named by the species you are searching in. For example, if you are searching in Homo Sapiens the network will be called H. Sapiens (1). For each new search in the same species the number in parenthesis will be increased.
+</li>
+<li>
+jump back to the original enrichment map by selecting it from the drop down list.(For our example, click on mesen_vs_immuno.GSEAPreRanked to go to the original network.)
+</li>
+</ul>
 <p align="center">
 <img src="images/heatmap/back2EM.png" alt="back2EM" width="75%"  />
 </p>
@@ -240,7 +269,16 @@ If you want to return to your Enrichment map * click on the drop down in the top
 </div>
 <div id="explore-genemania-network" class="section level2">
 <h2>Explore GeneMANIA network</h2>
-<p>GeneMANIA<span class="citation">(Warde-Farley et al. <a href="#ref-genemania">2010</a>)</span> returns the inter-connected network of query genes connected using various types of networks including: * Co-expression * Pathways * Shared protein domains * Physical interactions * Predicted * Co-localizations You can see the weights associated with your query genes in the Cytoscape results panels located on the right hand side.</p>
+<p>GeneMANIA<span class="citation">(Warde-Farley et al. <a href="#ref-genemania">2010</a>)</span> returns the inter-connected network of query genes connected using various types of networks including:</p>
+<ul>
+<li>Co-expression</li>
+<li>Pathways</li>
+<li>Shared protein domains</li>
+<li>Physical interactions</li>
+<li>Predicted</li>
+<li>Co-localizations</li>
+</ul>
+<p>You can see the weights associated with your query genes in the Cytoscape results panels located on the right hand side.</p>
 <p align="center">
 <img src="images/heatmap/genemania_results.png" alt="genemania results" width="75%"  />
 </p>
@@ -252,7 +290,11 @@ If the panel is not there, click on the GeneMANIA icon on the left hand bar to o
 <img src="images/heatmap/genemania_tab.png" alt="genemania tab" width="75%"  />
 </p>
 </div>
-<p>Each network type contains hundreds of different networks and each network is associated with its own weight that contributes to the weight of the group. * You can expand each network type to see the individual networks. * Clicking on an individual network or network type will highlight all the nodes and edges that are associated with it.</p>
+<p>Each network type contains hundreds of different networks and each network is associated with its own weight that contributes to the weight of the group.</p>
+<ul>
+<li>You can expand each network type to see the individual networks.</li>
+<li>Clicking on an individual network or network type will highlight all the nodes and edges that are associated with it.</li>
+</ul>
 <p align="center">
 <img src="images/heatmap/genemania_highlight.png" alt="genemania highlight" width="75%"  />
 </p>
@@ -271,7 +313,7 @@ If the panel is not there, click on the GeneMANIA icon on the left hand bar to o
         </div>
       </div>
 <a href="a-exploring-the-table-panel-heat-map.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="pathwaycommons.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -10,7 +10,9 @@ rmd_files: ["index.Rmd","01-Materials.Rmd","02-Software_installation.Rmd",
 "05-Pathway_enrichment_analysis_gsea.Rmd",
 "06-EnrichmentMap_analysis.Rmd","07-EnrichmentMap_analysis_gprofiler.Rmd", 
 "08-EnrichmentMap_analysis_gsea.Rmd","09-EnrichmentMap_navigation.Rmd",
-"10-Heatmap_navigation.Rmd","10A-Show_in_GeneMANIA.Rmd","references.Rmd"]
+"10-Heatmap_navigation.Rmd","10A-Show_in_GeneMANIA.Rmd",
+"10B-Show_in_PathwayCommons.Rmd","10C-Show_in_String.Rmd","11-Network_organization.Rmd",
+"12-Major_biological_themes.Rmd","references.Rmd"]
 clean: [packages.bib, bookdown.bbl]
 new_session: no
 bookdown::gitbook:

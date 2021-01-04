@@ -155,6 +155,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html#update-genemania-visual-style"><i class="fa fa-check"></i>Update GeneMANIA visual style</a></li>
 <li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html#explore-genemania-network"><i class="fa fa-check"></i>Explore GeneMANIA network</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="pathwaycommons.html"><a href="pathwaycommons.html"><i class="fa fa-check"></i>Search Pathway commons</a></li>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html"><i class="fa fa-check"></i>Search String</a><ul>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#show-connections-between-genes-in-gene-set-using-string"><i class="fa fa-check"></i>Show connections between genes in Gene set using STRING</a></li>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#update-string-visual-style"><i class="fa fa-check"></i>Update STRING visual style</a></li>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#explore-string-network"><i class="fa fa-check"></i>Explore STRING network</a><ul>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#string-enrichments"><i class="fa fa-check"></i>STRING Enrichments</a></li>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#string-filtering"><i class="fa fa-check"></i>STRING filtering</a></li>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#string-selected"><i class="fa fa-check"></i>STRING selected</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="b-organization-and-clarification-of-the-network.html"><a href="b-organization-and-clarification-of-the-network.html"><i class="fa fa-check"></i>(13B) Organization and clarification of the network</a><ul>
+<li class="chapter" data-level="" data-path="b-organization-and-clarification-of-the-network.html"><a href="b-organization-and-clarification-of-the-network.html#separate-two-different-phenotypes"><i class="fa fa-check"></i>Separate two different phenotypes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="c-defining-major-biological-themes.html"><a href="c-defining-major-biological-themes.html"><i class="fa fa-check"></i>(13C) Defining major biological themes</a><ul>
+<li class="chapter" data-level="" data-path="c-defining-major-biological-themes.html"><a href="c-defining-major-biological-themes.html#annotate-the-network"><i class="fa fa-check"></i>Annotate the Network</a></li>
+<li class="chapter" data-level="" data-path="c-defining-major-biological-themes.html"><a href="c-defining-major-biological-themes.html#manually-arrange-network"><i class="fa fa-check"></i>Manually arrange network</a></li>
+<li class="chapter" data-level="" data-path="c-defining-major-biological-themes.html"><a href="c-defining-major-biological-themes.html#resulting-network"><i class="fa fa-check"></i>Resulting Network</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -180,12 +198,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1>(13A) Exploring the Table Panel heat map</h1>
 <div id="expression-viewer" class="section level2">
 <h2>Expression Viewer</h2>
-i.When a gene expression matrix is provided as input to EnrichmentMap, we can study the expression pattern of the genes included in enriched pathways. * Click on either an individual node -<br />
+<p>i.When a gene expression matrix is provided as input to EnrichmentMap, we can study the expression pattern of the genes included in enriched pathways.</p>
+<ul>
+<li>Click on either an individual node -<br />
 
 <p align="center">
 <img src="images/heatmap/indiv_node.png" alt="single node" width="75%"  />
-</p>
-<ul>
+</p></li>
 <li>or a group of nodes -
 <p align="center">
 <img src="images/heatmap/group_node.png" alt="multi node" width="75%"  />
@@ -321,7 +340,7 @@ Check <em>Values</em> to show the expression numerical values in addition to the
 </ol>
 <ul>
 <li><p align="center">
-<img src="images/heatmap/values.png" alt="values" width="75%"  />
+<img src="images/heatmap/values.png" alt="values" width="50%"  />
 </p></li>
 </ul>
 </div>
@@ -339,8 +358,8 @@ Perform additional fine-tuning of the heat map using the <em>Settings</em> panel
 <li>This includes functionality to:
 <ul>
 <li><a href="genemania.html#genemania">Show in GeneMANIA...</a> - Use the genes in the heatmap and search GeneMANIA<span class="citation">(Warde-Farley et al. <a href="#ref-genemania">2010</a>)</span>.</li>
-<li>Show in STRING ... - Use the genes in the heatmap and search STRING.</li>
-<li>Show in Pathway Commons... - Use the genes in the heatmap and search Pathway Commons.</li>
+<li><a href="string.html#string">Show in STRING ...</a> - Use the genes in the heatmap and search STRING.</li>
+<li><a href="pathwaycommons.html#pathwaycommons">Show in Pathway Commons...</a> - Use the genes in the heatmap and search Pathway Commons.</li>
 <li>Add Rankings - add new ranking files,</li>
 <li>Export as TXT... - export the heat map data as a tab-delimited text file</li>
 <li>Export as PDF... - export the heat map data as a PDF image,</li>
@@ -351,16 +370,23 @@ Perform additional fine-tuning of the heat map using the <em>Settings</em> panel
 <li>Auto Select leading edge</li>
 </ul></li>
 </ul>
+<p><br></p>
+<p>Genes are sorted using the GSEA rank file, highlighting the leading edge in yellow. All genes contained in selected nodes are shown, expression values are row-normalized, no compression is applied and individual expression numerical values are not shown. Column headings are colored according to sample phenotype. Red color refers to the first phenotype (mesenchymal), and blue to the second phenotype (immunoreactive).</p>
 <p align="center">
 <img src="images/heatmap/heatmap.png" alt="heatmap" width="75%"  />
 </p>
-<p>Genes are sorted using the GSEA rank file, highlighting the leading edge in yellow. All genes contained in selected nodes are shown, expression values are row-normalized, no compression is applied and individual expression numerical values are not shown. Column headings are colored according to sample phenotype. Red color refers to the first phenotype (mesenchymal), and blue to the second phenotype (immunoreactive).</p>
 <div class="rmd-troubleshooting">
 <p>
 <strong>Heat map column names are not colored by dataset</strong>
 </p>
 <p>
-If the heat map columns are not colored for a GSEA analysis, make sure the phenotype names specified in the EnrichmentMap input panel match the class names specified in the class file (MesenchymalvsImmunoreactive_RNA-Seq_classes.cls).
+If the heat map columns are not colored for a GSEA analysis, make sure the phenotype names specified in the EnrichmentMap input panel here:
+</p>
+<p align="center">
+<img src="images/heatmap/match_classes.png" alt="match" width="75%"  />
+</p>
+<p>
+match the class names specified in the class file <a href="./data/Supplementary_Table7_TCGA_OV_RNAseq_classes.cls">Supplementary_Table7_TCGA_OV_RNAseq_classes.cls</a>.
 </p>
 </div>
 </div>

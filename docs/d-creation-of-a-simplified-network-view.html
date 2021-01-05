@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>(13D) Creation of a simplified network view | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap</title>
+  <meta name="description" content="updated version of nature protocol" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="(13D) Creation of a simplified network view | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="updated version of nature protocol" />
+  <meta name="github-repo" content="baderlab/EnrichmentMap_Protocol" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="(13D) Creation of a simplified network view | Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap" />
+  
+  <meta name="twitter:description" content="updated version of nature protocol" />
+  
+
+<meta name="author" content="Ruth Isserlin" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="annotate.html"/>
+<link rel="next" href="e-manual-arrangement-of-network-nodes-and-updating-of-theme-labels.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i>Attributions:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html"><i class="fa fa-check"></i>Materials</a><ul>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#equipment"><i class="fa fa-check"></i>Equipment</a><ul>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#hardware"><i class="fa fa-check"></i>Hardware</a></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#software"><i class="fa fa-check"></i>Software</a></li>
+<li class="chapter" data-level="" data-path="materials.html"><a href="materials.html#input-data"><i class="fa fa-check"></i>Input data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="software-installation.html"><a href="software-installation.html"><i class="fa fa-check"></i>(1-5) Software installation</a></li>
+<li class="chapter" data-level="" data-path="pathway-enrichment-analysis.html"><a href="pathway-enrichment-analysis.html"><i class="fa fa-check"></i>Pathway enrichment analysis</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html"><i class="fa fa-check"></i>(6A) Gene list using g:Profiler</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#specify-parameters"><i class="fa fa-check"></i>Specify parameters</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#downlaod-gmt"><i class="fa fa-check"></i>Downlaod GMT</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#run-query"><i class="fa fa-check"></i>Run Query</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#filter-enrichment-results"><i class="fa fa-check"></i>Filter enrichment results</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-enrich.html"><a href="gprofiler-enrich.html#downlaod-enrichment-file"><i class="fa fa-check"></i>Downlaod Enrichment File</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html"><i class="fa fa-check"></i>(6B) Ranked gene list using GSEA</a><ul>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#gsea_ts1"><i class="fa fa-check"></i>Loading the required data files into GSEA</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#specifying-parameters"><i class="fa fa-check"></i>Specifying parameters</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#running-gsea"><i class="fa fa-check"></i>Running GSEA</a></li>
+<li class="chapter" data-level="" data-path="gsea-enrich.html"><a href="gsea-enrich.html#examining-gsea-results"><i class="fa fa-check"></i>Examining GSEA results</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="visualization-of-enrichment-results-with-enrichmentmap.html"><a href="visualization-of-enrichment-results-with-enrichmentmap.html"><i class="fa fa-check"></i>(7-9) Visualization of enrichment results with EnrichmentMap</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html"><i class="fa fa-check"></i>(9A) g:Profiler - Creation of enrichment maps for results generated in Step 6A</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#parameter-specification"><i class="fa fa-check"></i>Parameter specification</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#specification-of-additional-optional-files"><i class="fa fa-check"></i>Specification of additional optional files:</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#tuning-parameters"><i class="fa fa-check"></i>Tuning parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea-em.html"><a href="gsea-em.html"><i class="fa fa-check"></i>(9B) GSEA - Creation of enrichment maps for results generated in Step 6B</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#parameter-specification"><i class="fa fa-check"></i>Parameter specification</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#specification-of-additional-optional-files"><i class="fa fa-check"></i>Specification of additional optional files:</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-em.html"><a href="gprofiler-em.html#tuning-parameters"><i class="fa fa-check"></i>Tuning parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="navigation-and-interpretation-of-the-enrichment-map.html"><a href="navigation-and-interpretation-of-the-enrichment-map.html"><i class="fa fa-check"></i>(10-12) Navigation and interpretation of the enrichment map</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html"><i class="fa fa-check"></i>(13A) Exploring the Table Panel heat map</a><ul>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#expression-viewer"><i class="fa fa-check"></i>Expression Viewer</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#sorting-options"><i class="fa fa-check"></i>Sorting options</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#gene-options"><i class="fa fa-check"></i>Gene Options</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#expression-data-transformations"><i class="fa fa-check"></i>Expression data transformations</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#additional-functions"><i class="fa fa-check"></i>Additional Functions</a></li>
+<li class="chapter" data-level="" data-path="a-exploring-the-table-panel-heat-map.html"><a href="a-exploring-the-table-panel-heat-map.html#export-results"><i class="fa fa-check"></i>Export Results</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html"><i class="fa fa-check"></i>Search GeneMANIA</a><ul>
+<li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html#show-connections-between-genes-in-gene-set-using-genemania"><i class="fa fa-check"></i>Show connections between genes in Gene set using GeneMANIA</a></li>
+<li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html#update-genemania-visual-style"><i class="fa fa-check"></i>Update GeneMANIA visual style</a></li>
+<li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html#explore-genemania-network"><i class="fa fa-check"></i>Explore GeneMANIA network</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="pathwaycommons.html"><a href="pathwaycommons.html"><i class="fa fa-check"></i>Search Pathway commons</a></li>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html"><i class="fa fa-check"></i>Search String</a><ul>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#show-connections-between-genes-in-gene-set-using-string"><i class="fa fa-check"></i>Show connections between genes in Gene set using STRING</a></li>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#update-string-visual-style"><i class="fa fa-check"></i>Update STRING visual style</a></li>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#explore-string-network"><i class="fa fa-check"></i>Explore STRING network</a><ul>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#string-enrichments"><i class="fa fa-check"></i>STRING Enrichments</a></li>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#string-filtering"><i class="fa fa-check"></i>STRING filtering</a></li>
+<li class="chapter" data-level="" data-path="string.html"><a href="string.html#string-selected"><i class="fa fa-check"></i>STRING selected</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="b-organization-and-clarification-of-the-network.html"><a href="b-organization-and-clarification-of-the-network.html"><i class="fa fa-check"></i>(13B) Organization and clarification of the network</a><ul>
+<li class="chapter" data-level="" data-path="b-organization-and-clarification-of-the-network.html"><a href="b-organization-and-clarification-of-the-network.html#separate-two-different-phenotypes"><i class="fa fa-check"></i>Separate two different phenotypes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="annotate.html"><a href="annotate.html"><i class="fa fa-check"></i>(13C) Defining major biological themes</a><ul>
+<li class="chapter" data-level="" data-path="annotate.html"><a href="annotate.html#annotate-the-network"><i class="fa fa-check"></i>Annotate the Network</a></li>
+<li class="chapter" data-level="" data-path="annotate.html"><a href="annotate.html#manually-arrange-network"><i class="fa fa-check"></i>Manually arrange network</a></li>
+<li class="chapter" data-level="" data-path="annotate.html"><a href="annotate.html#resulting-network"><i class="fa fa-check"></i>Resulting Network</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="d-creation-of-a-simplified-network-view.html"><a href="d-creation-of-a-simplified-network-view.html"><i class="fa fa-check"></i>(13D) Creation of a simplified network view</a><ul>
+<li class="chapter" data-level="" data-path="d-creation-of-a-simplified-network-view.html"><a href="d-creation-of-a-simplified-network-view.html#collapse-network"><i class="fa fa-check"></i>Collapse Network</a></li>
+<li class="chapter" data-level="" data-path="d-creation-of-a-simplified-network-view.html"><a href="d-creation-of-a-simplified-network-view.html#scale-network"><i class="fa fa-check"></i>Scale Network</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="e-manual-arrangement-of-network-nodes-and-updating-of-theme-labels.html"><a href="e-manual-arrangement-of-network-nodes-and-updating-of-theme-labels.html"><i class="fa fa-check"></i>(13E) Manual arrangement of network nodes and updating of theme labels</a><ul>
+<li class="chapter" data-level="" data-path="e-manual-arrangement-of-network-nodes-and-updating-of-theme-labels.html"><a href="e-manual-arrangement-of-network-nodes-and-updating-of-theme-labels.html#create-sub-network"><i class="fa fa-check"></i>Create Sub-network</a></li>
+<li class="chapter" data-level="" data-path="e-manual-arrangement-of-network-nodes-and-updating-of-theme-labels.html"><a href="e-manual-arrangement-of-network-nodes-and-updating-of-theme-labels.html#publication-ready"><i class="fa fa-check"></i>Publication ready</a></li>
+<li class="chapter" data-level="" data-path="e-manual-arrangement-of-network-nodes-and-updating-of-theme-labels.html"><a href="e-manual-arrangement-of-network-nodes-and-updating-of-theme-labels.html#rename-themes"><i class="fa fa-check"></i>Rename themes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="f-creation-of-a-subnetwork-that-highlights-a-specific-theme-subset.html"><a href="f-creation-of-a-subnetwork-that-highlights-a-specific-theme-subset.html"><i class="fa fa-check"></i>(13F) Creation of a subnetwork that highlights a specific theme subset</a></li>
+<li class="chapter" data-level="" data-path="exporting-figures-creating-legends-and-saving-work.html"><a href="exporting-figures-creating-legends-and-saving-work.html"><i class="fa fa-check"></i>(14 - 20) Exporting figures, creating legends and saving work</a><ul>
+<li class="chapter" data-level="" data-path="exporting-figures-creating-legends-and-saving-work.html"><a href="exporting-figures-creating-legends-and-saving-work.html#export-image"><i class="fa fa-check"></i>Export image</a></li>
+<li class="chapter" data-level="" data-path="exporting-figures-creating-legends-and-saving-work.html"><a href="exporting-figures-creating-legends-and-saving-work.html#save-network"><i class="fa fa-check"></i>Save Network</a></li>
+<li class="chapter" data-level="" data-path="exporting-figures-creating-legends-and-saving-work.html"><a href="exporting-figures-creating-legends-and-saving-work.html#network-creation-parameters"><i class="fa fa-check"></i>Network creation parameters</a></li>
+<li class="chapter" data-level="" data-path="exporting-figures-creating-legends-and-saving-work.html"><a href="exporting-figures-creating-legends-and-saving-work.html#legends"><i class="fa fa-check"></i>Legends</a></li>
+<li class="chapter" data-level="" data-path="exporting-figures-creating-legends-and-saving-work.html"><a href="exporting-figures-creating-legends-and-saving-work.html#save"><i class="fa fa-check"></i>Save</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="d-creation-of-a-simplified-network-view" class="section level1">
+<h1>(13D) Creation of a simplified network view</h1>
+<p>This creates a single group node for each cluster with a summarized name and provides an overview of the enrichment result themes that is useful for enrichment maps containing many nodes.</p>
+<div id="collapse-network" class="section level2">
+<h2>Collapse Network</h2>
+<ol start="1" type="i">
+<li>
+In the <em>Control Panel</em>, select the <em>AutoAnnotate</em> tab.
+</li>
+<li>
+Click on the <em>Menu</em> icon in the upper right corner.
+</li>
+<li>
+Select <em>Collapse All</em>.
+</li>
+</ol>
+<p align="center">
+<img src="images/em/aa_collapse_all.png" alt="node slider" width="75%"  />
+</p>
+<div class="rmd-troubleshooting">
+<p>
+<strong>Pop-up after selecting Collapse all shows up every time user collapses the clusters</strong>
+</p>
+<p>
+Once you click on Collapse All, a pop-up window will show the message ‘Before collapsing clusters please go to the menu Edit → Preferences → Group preferences and select ‘Enable attribute aggregation’’.
+</p>
+<p align="center">
+<img src="images/em/aa_collapse_warning.png" alt="node slider" width="75%"  />
+</p>
+<ul>
+<li>
+There is no need to adjust this parameter repeatedly.
+</li>
+<li>
+Click on Don’t ask me again and OK if you have set this parameter previously.
+</li>
+</ul>
+</div>
+<div class="rmd-troubleshooting">
+<p>
+<strong>Collapsing the network takes a long time</strong>
+</p>
+<p>
+For large networks, collapsing and expanding may take time. For a quick view of the collapsed network, you can create a summary network by selecting the <em>Create summary Network…</em> option. There are two options for the summary network: clusters only, which creates a summary network with just the circled clusters, or clusters and unclustered nodes, which creates a summary network that also includes the singleton nodes that are not part of any cluster
+</p>
+</div>
+<div class="rmd-troubleshooting">
+<p>
+<strong>Collapsed network contains gray nodes instead of colored nodes as they were in the pre-collapsed network</strong>
+</p>
+<p>
+If the nodes in the resulting collapsed network are gray, then you forgot to enable attribute aggregation.
+</p>
+<ul>
+<li>
+Expand the clusters and,
+</li>
+<li>
+before collapsing clusters again, go to Edit → Preferences → Group preferences and
+</li>
+<li>
+select Enable attribute aggregation
+</li>
+<li>
+Now, Select <em>Collapse all</em> to collapse network.
+</li>
+</ul>
+</div>
+<p align="center">
+<img src="images/em/simplified_network.png" alt="node slider" width="75%"  />
+</p>
+<p>The enrichment map was summarized by collapsing node clusters using the AutoAnnotate application. Each cluster of nodes s now represented as a single node.</p>
+</div>
+<div id="scale-network" class="section level2">
+<h2>Scale Network</h2>
+<p>Scale the collapsed network for better viewing.</p>
+<ol start="4" type="i">
+<li>
+In the Cytoscape menu bar, select <em>View → Show Tool Panel</em>.
+</li>
+<li>
+Go to the <em>Layout Tools</em> panel located at the bottom of the Control Panel.
+</li>
+<li>
+Locate the <em>Scale</em> slider bar and use it on unselected nodes (uncheck <em>Selected only</em>).
+</li>
+<li>
+Move the slider left to tighten the node spacing. Close the Node Layout Tools panel when finished.
+</li>
+</ol>
+<p align="center">
+<img src="images/em/layout_tools.png" alt="node slider" width="75%"  />
+</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="annotate.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="e-manual-arrangement-of-network-nodes-and-updating-of-theme-labels.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["EnrichmentMap_Protocol.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"new_session": false
+});
+});
+</script>
+
+</body>
+
+</html>

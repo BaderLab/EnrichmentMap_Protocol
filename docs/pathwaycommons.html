@@ -155,7 +155,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html#update-genemania-visual-style"><i class="fa fa-check"></i>Update GeneMANIA visual style</a></li>
 <li class="chapter" data-level="" data-path="genemania.html"><a href="genemania.html#explore-genemania-network"><i class="fa fa-check"></i>Explore GeneMANIA network</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="pathwaycommons.html"><a href="pathwaycommons.html"><i class="fa fa-check"></i>Search Pathway commons</a></li>
+<li class="chapter" data-level="" data-path="pathwaycommons.html"><a href="pathwaycommons.html"><i class="fa fa-check"></i>Search Pathway commons</a><ul>
+<li class="chapter" data-level="" data-path="pathwaycommons.html"><a href="pathwaycommons.html#show-pathway-connections-between-genes-in-gene-set-using-pathway-commons"><i class="fa fa-check"></i>Show pathway connections between genes in Gene set using Pathway commons</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="string.html"><a href="string.html"><i class="fa fa-check"></i>Search String</a><ul>
 <li class="chapter" data-level="" data-path="string.html"><a href="string.html#show-connections-between-genes-in-gene-set-using-string"><i class="fa fa-check"></i>Show connections between genes in Gene set using STRING</a></li>
 <li class="chapter" data-level="" data-path="string.html"><a href="string.html#update-string-visual-style"><i class="fa fa-check"></i>Update STRING visual style</a></li>
@@ -216,10 +218,48 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>This function allows users to search Pathway Commons<span class="citation">(Rodchenkov et al. <a href="#ref-pathwaycommons">2020</a>)</span> with a set of genes. The genes are pulled from the selected nodes in the Enrichment map but can be adjusted by the user before initiating the query.</p>
 <div class="rmd-troubleshooting">
 <p>
-This feature is currently not working
+Pathway commons integration needs expression data to work properly. If you have created an enrichment map without an expression set no network will be created in pathway commons.
 </p>
 </div>
+<div id="show-pathway-connections-between-genes-in-gene-set-using-pathway-commons" class="section level2">
+<h2>Show pathway connections between genes in Gene set using Pathway commons</h2>
+<ul>
+<li>The <em>show in Pathway Commons</em> function can be accessed from the HeatMap settings menu as well as the <em>Right click</em> context menu in the network.<br />
 
+<p align="center">
+<img src="images/heatmap/pathwaycommons_context_menu.png" alt="pathway commons context menu" width="100%"  />
+</p></li>
+<li>Right click on selected node/nodes.</li>
+<li>Select <em>Apps</em> --&gt; <em>EnrichmentMap - Show in Pathway Commons</em></li>
+<li>Pathway commons will automatically launch in your web browser showing you the pathway that best matches your query.
+<p align="center">
+<img src="images/heatmap/pathway_commons_search.png" alt="genemania query" width="100%"  />
+</p></li>
+<li><p>Genes in the pathway diagram that are coloured indicate the gene was found in the enrichment map. The colour indicates the degree of differential expression.</p></li>
+<li><p>You can change the value of differential expression by adjusting the collapsing method in the right hand legend panel.</p></li>
+</ul>
+<p align="center">
+<img src="images/heatmap/expression_define.png" alt="genemania query" width="100%"  />
+</p>
+<p>Pathway commons will attempt to find the best pathway that matches the set of genes that are passed to it. Not all pathways are represented in pathway commons (and some are not based on formal pathway definitions, for example biological process from the gene ontology). If the pathway chosen is not the best representation of the set of genes you queried you can manually choose between the other matches.</p>
+<ul>
+<li>In the right hand legend panel select the <em>Select Pathways</em> tab.
+<p align="center">
+<img src="images/heatmap/select_pathway.png" alt="genemania query" width="100%"  />
+</p></li>
+<li>Scroll through results to find the best pathway. Each pathway lists:
+<ul>
+<li>pathway name</li>
+<li>pathway database source</li>
+<li>number of genes from enrichment map query that matched pathway.
+<p align="center">
+<img src="images/heatmap/matched_pathways.png" alt="genemania query" width="100%"  />
+</p></li>
+<li>Clicking on any of the pathways in the list will open a new tab with the selected pathway.</li>
+</ul></li>
+</ul>
+
+</div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">

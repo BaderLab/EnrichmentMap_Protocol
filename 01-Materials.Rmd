@@ -7,11 +7,11 @@
 ### Software
   * A contemporary web browser (e.g., Chrome) for pathway enrichment analysis with g:Profiler (Step 6A).
 
-  * g:Profiler (https://biit.cs.ut.ee/gprofiler/)
+  * g:Profiler (https://biit.cs.ut.ee/gprofiler/)[@gprofiler]
 
   * Java Standard Edition (http://www.oracle.com/technetwork/java/javase/downloads/index.html) is required to run GSEA and Cytoscape.
   
-  * GSEA desktop application (http://software.broadinstitute.org/gsea/downloads.jsp) is used for pathway enrichment analysis (Step 6B). - **currently GSEA 4.1.0**
+  * GSEA desktop application[@gsea] (http://software.broadinstitute.org/gsea/downloads.jsp) is used for pathway enrichment analysis (Step 6B). - **currently GSEA 4.1.0**
   
   * The Cytoscape desktop application (http://www.cytoscape.org/download.php), as well as the following Cytoscape applications (specified the updated versions used for this updated protocol), is required for enrichment map visualization: EnrichmentMap, v.3.3.1 or higher; clusterMaker2, v.1.3.1 or higher; WordCloud, v.3.1.3 or higher; AutoAnnotate, v,1.3.3 or higher. These can be conveniently downloaded and installed together by installing the ‘EnrichmentMap Pipeline Collection’ (http://apps.cytoscape.org/apps/enrichmentmappipelinecollection) from the Cytoscape App Store.
   
